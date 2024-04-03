@@ -44,25 +44,68 @@ export default function Home() {
           url="/shared/desktop/image-category-thumbnail-earphones.png"
         />
       </div>
-      <div className="w-[90%] h-[600px] rounded-md bg-[#D87D4A] relative flex items-center justify-center flex-col gap-6 text-center px-4 text-white">
+      <div className="w-[90%] h-[600px] rounded-md bg-[#D87D4A] relative flex items-center justify-center flex-col gap-6 text-center px-4 text-white ">
         <img
           src="/home/desktop/pattern-circles.svg"
           alt=""
-          className="top-0 absolute  h-[400px] "
+          className="absolute top-0  w-full "
         />
         <Image
           alt="speaker"
           src={'/shared/desktop/image-category-thumbnail-speakers.png'}
           width={212}
           height={0}
-          className=""
+          className="absolute top-20"
         />
-        <h2 className="text-[36px] font-bold mx-6">ZX9 SPEAKER</h2>
-        <p>
+        <h2 className="text-[36px] font-bold mx-6 mt-48">ZX9 SPEAKER</h2>
+        <p className="text-white text-[15px] opacity-75 leading-[25px]">
           Upgrade to premium speakers that are phenomenally built to deliver truly
           remarkable sound.
         </p>
-        <Button />
+        <Button backgroud="black" />
+      </div>
+      <div className="flex flex-col items-start justify-center pl-10 w-[90%]  relative h-[320px] ">
+        <img
+          src="home\mobile\image-speaker-zx7.jpg"
+          alt=""
+          className="absolute w-full top-0 left-0 rounded-md h-full"
+        />
+        <h2 className="text-black text-[28px] font-bold tracking-[2px] z-10">
+          ZX7 SPEAKER
+        </h2>
+        <Button backgroud="fsdd" />
+      </div>
+      <div className="flex justify-center items-center gap-6 flex-col w-[90%]">
+        <img
+          src="home\mobile\image-earphones-yx1.jpg
+        "
+          className="w-full rounded-md"
+          alt=""
+        />
+        <div className="w-full bg-[#F1F1F1] pl-6 flex items-start justify-center flex-col h-[200px] rounded-md">
+          <h2 className="text-black text-[28px] font-bold tracking-[2px] z-10">
+            YX1 EARPHONES
+          </h2>
+          <Button backgroud="transparent" />
+        </div>
+      </div>
+      <div className="flex justify-center items-center flex-col gap-6 w-[90%] text-center">
+        <img src="shared\mobile\image-best-gear.jpg" alt="" className="rounded-md" />
+        <div className="flex items-center justify-center gap-6 flex-col ">
+          <h2 className="text-[28px] font-bold text-black tracking-[1px] uppercase">
+            Bringing you the
+            <span className="text-[#D87D4A]"> best </span>
+            audio gear
+          </h2>
+          <p className="text-black opacity-50 text-[15px] leading-5">
+            Located at the heart of New York City, Audiophile is the premier store for
+            high end headphones, earphones, speakers, and audio accessories. We have a
+            large showroom and luxury demonstration rooms available for you to browse and
+            experience a wide range of our products. Stop by our store to meet some of the
+            fantastic people who make Audiophile the best place to buy your portable audio
+            equipment.
+          </p>
+        </div>
       </div>
     </div>
   );
