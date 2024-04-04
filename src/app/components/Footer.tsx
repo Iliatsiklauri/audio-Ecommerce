@@ -37,7 +37,7 @@ export default function Footer() {
       <p className="opacity-50 text-white text-[15px]">
         Audiophile is an all in one stop to fulfill your audio needs. We're a small team
         of music lovers and sound specialists who are devoted to helping you get the most
-        out of personal audio. Come and visit our demo facility - we’re open 7 days a
+        out of personal audio. Come and visit our demo facility - we&aposre open 7 days a
         week.
       </p>
       <p className="font-bold text-white text-[15px] opacity-50">

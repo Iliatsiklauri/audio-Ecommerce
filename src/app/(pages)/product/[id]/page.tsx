@@ -10,10 +10,12 @@ type ParamsType = {
   };
 };
 
-export default function page({ params }: ParamsType) {
+export default function Page({ params }: ParamsType) {
   const [obj, setObj] = useState();
   const context = useContext(GlobalContext);
+
   if (!context) return null;
+
   const { data } = context;
   const newData = data.filter((el) => el.id === Number(params.id));
 
