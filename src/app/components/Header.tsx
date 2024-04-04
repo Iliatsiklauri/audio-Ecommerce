@@ -13,7 +13,7 @@ export default function Header() {
     >
       <Image
         alt="hamburger"
-        src={'shared/tablet/icon-hamburger.svg'}
+        src={'/shared/tablet/icon-hamburger.svg'}
         width={16}
         height={15}
         className="cursor-pointer"
@@ -21,7 +21,7 @@ export default function Header() {
       <Link href={'/'}>
         <Image
           alt="logo"
-          src={'shared/desktop/logo.svg'}
+          src={'/shared/desktop/logo.svg'}
           width={143}
           height={25}
           className="cursor-pointer"
@@ -29,7 +29,7 @@ export default function Header() {
       </Link>
       <Image
         alt="cart"
-        src={'shared/desktop/icon-cart.svg'}
+        src={'/shared/desktop/icon-cart.svg'}
         width={23}
         height={20}
         className="cursor-pointer"

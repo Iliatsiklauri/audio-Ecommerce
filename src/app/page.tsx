@@ -4,19 +4,20 @@ import { useContext } from 'react';
 import { GlobalContext } from './Data';
 import Button from './components/Button';
 import Image from 'next/image';
-import Category from './components/Home/Category';
+import Category from './components/Category';
+import BestGear from './components/BestGear';
 
 export default function Home() {
   const context = useContext(GlobalContext);
   if (!context) return null;
   const { data } = context;
   return (
-    <div className="w-full relative flex flex-col items-center justify-center gap-10">
-      <div className="flex flex-col justify-center items-center mt-44 gap-4">
+    <div className="w-full relative flex flex-col items-center justify-center gap-10 pt-40 pb-10 px-4 bg-[#FAFAFA]">
+      <div className="flex flex-col justify-center items-center gap-4 mb-32">
         <img
           src="/home/mobile/image-header.jpg"
           alt=""
-          className="absolute w-full h-auto top-0"
+          className="absolute w-full h-[570px] top-0"
         />
         <h2 className="opacity-50 text-white text-[14px] tracking-[10px] uppercase ">
           NEW PRODUCT
@@ -30,21 +31,8 @@ export default function Home() {
         </p>
         <Button />
       </div>
-      <div className="w-[90%] mt-60 flex items-center justify-center flex-col gap-28">
-        <Category
-          text="HEADPHONES"
-          url="/shared/desktop/image-category-thumbnail-headphones.png"
-        />
-        <Category
-          text="SPEAKERS"
-          url="/shared/desktop/image-category-thumbnail-speakers.png"
-        />
-        <Category
-          text="HEADPHONES"
-          url="/shared/desktop/image-category-thumbnail-earphones.png"
-        />
-      </div>
-      <div className="w-[90%] h-[600px] rounded-md bg-[#D87D4A] relative flex items-center justify-center flex-col gap-6 text-center px-4 text-white ">
+      <Category />
+      <div className="w-full h-[600px] rounded-md bg-[#D87D4A] relative flex items-center justify-center flex-col gap-6 text-center px-4 text-white ">
         <img
           src="/home/desktop/pattern-circles.svg"
           alt=""
@@ -64,7 +52,7 @@ export default function Home() {
         </p>
         <Button backgroud="black" />
       </div>
-      <div className="flex flex-col items-start justify-center pl-10 w-[90%]  relative h-[320px] ">
+      <div className="flex flex-col items-start justify-center pl-10 w-full  relative h-[320px] gap-6">
         <img
           src="home\mobile\image-speaker-zx7.jpg"
           alt=""
@@ -75,38 +63,21 @@ export default function Home() {
         </h2>
         <Button backgroud="fsdd" />
       </div>
-      <div className="flex justify-center items-center gap-6 flex-col w-[90%]">
+      <div className="flex justify-center items-center gap-6 flex-col w-full">
         <img
           src="home\mobile\image-earphones-yx1.jpg
         "
           className="w-full rounded-md"
           alt=""
         />
-        <div className="w-full bg-[#F1F1F1] pl-6 flex items-start justify-center flex-col h-[200px] rounded-md">
+        <div className="w-full bg-[#F1F1F1] pl-6 flex items-start justify-center flex-col h-[200px] rounded-md gap-6">
           <h2 className="text-black text-[28px] font-bold tracking-[2px] z-10">
             YX1 EARPHONES
           </h2>
           <Button backgroud="transparent" />
         </div>
       </div>
-      <div className="flex justify-center items-center flex-col gap-6 w-[90%] text-center">
-        <img src="shared\mobile\image-best-gear.jpg" alt="" className="rounded-md" />
-        <div className="flex items-center justify-center gap-6 flex-col ">
-          <h2 className="text-[28px] font-bold text-black tracking-[1px] uppercase">
-            Bringing you the
-            <span className="text-[#D87D4A]"> best </span>
-            audio gear
-          </h2>
-          <p className="text-black opacity-50 text-[15px] leading-5">
-            Located at the heart of New York City, Audiophile is the premier store for
-            high end headphones, earphones, speakers, and audio accessories. We have a
-            large showroom and luxury demonstration rooms available for you to browse and
-            experience a wide range of our products. Stop by our store to meet some of the
-            fantastic people who make Audiophile the best place to buy your portable audio
-            equipment.
-          </p>
-        </div>
-      </div>
+      <BestGear />
     </div>
   );
 }

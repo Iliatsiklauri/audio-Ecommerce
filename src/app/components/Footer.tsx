@@ -6,7 +6,7 @@ export default function Footer() {
     <div className="w-full h-[655px] flex flex-col items-center justify-around bg-[#101010] relative text-center px-6">
       <div className="absolute top-0 h-1 w-1/4 bg-[#D87D4A]"></div>
       <Image
-        src={'shared/desktop/logo.svg'}
+        src={'/shared/desktop/logo.svg'}
         alt="logo"
         width={143}
         height={25}
@@ -46,19 +46,19 @@ export default function Footer() {
       <div className="flex items-center justify-center gap-4">
         <Image
           alt="facebook"
-          src={'shared/desktop/icon-facebook.svg'}
+          src={'/shared/desktop/icon-facebook.svg'}
           width={24}
           height={24}
         />
         <Image
           alt="twitter"
-          src={'shared/desktop/icon-twitter.svg'}
+          src={'/shared/desktop/icon-twitter.svg'}
           width={24}
           height={24}
         />
         <Image
           alt="instagram"
-          src={'shared/desktop/icon-instagram.svg'}
+          src={'/shared/desktop/icon-instagram.svg'}
           width={24}
           height={24}
         />
