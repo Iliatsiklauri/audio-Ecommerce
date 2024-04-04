@@ -3,7 +3,7 @@ import React from 'react';
 export default function BestGear() {
   return (
     <div className="flex justify-center items-center flex-col gap-6 w-full text-center">
-      <img src="shared\mobile\image-best-gear.jpg" alt="" className="rounded-md" />
+      <img src="/shared/mobile/image-best-gear.jpg" alt="" className="rounded-md" />
       <div className="flex items-center justify-center gap-6 flex-col ">
         <h2 className="text-[28px] font-bold text-black tracking-[1px] uppercase">
           Bringing you the
