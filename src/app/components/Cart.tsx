@@ -1,19 +1,22 @@
-import { motion, useScroll } from 'framer-motion';
-import { CartType, GlobalContext } from '../Data';
+import { motion } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';
 import Button from './Button';
 import Image from 'next/image';
 import CartSection from './CartSection';
+import { GlobalContext, CartType } from '../Data';
 
-type propType = {
+type PropType = {
   products: CartType[] | [];
 };
 
-export default function Cart() {
+export default function Cart({ products }: PropType) {
   const [num, setNum] = useState<any>(0);
   const context = useContext(GlobalContext);
+
   if (!context) return null;
+
   const { burger, cartMode, cart, setCart, id, setId } = context;
+
   useEffect(() => {
     let number = 0;
     cart.forEach((el) => {
