@@ -4,7 +4,6 @@ import { CartType, DataType, GlobalContext } from './Data';
 import res from '@/app/data.json';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { motion } from 'framer-motion';
 import Cart from './components/Cart';
 import BurgerMenu from './components/BurgerMenu';
 import DarkBg from './components/DarkBg';

@@ -3,13 +3,9 @@ import { useContext, useEffect, useState } from 'react';
 import Button from './Button';
 import Image from 'next/image';
 import CartSection from './CartSection';
-import { GlobalContext, CartType } from '../Data';
+import { GlobalContext } from '../Data';
 
-type PropType = {
-  products: CartType[] | [];
-};
-
-export default function Cart({ products }: PropType) {
+export default function Cart() {
   const [num, setNum] = useState<any>(0);
   const context = useContext(GlobalContext);
 
@@ -47,6 +43,11 @@ export default function Cart({ products }: PropType) {
             Remove All
           </p>
         </div>
+        <div className="w-full  flex flex-col items-center justify-center gap-4">
+          {cart?.map((el, key) => (
+            <CartSection el={el} key={key} />
+          ))}
+        </div>
         {cart.length === 0 ? (
           <div className="flex justify-center w-full  items-center">
             <p className=" text-left  w-[190px] opacity-50 text-xl ">
@@ -59,13 +60,7 @@ export default function Cart({ products }: PropType) {
               height={20}
             />
           </div>
-        ) : null}
-        <div className="w-full  flex flex-col items-center justify-center gap-4">
-          {cart?.map((el, key) => (
-            <CartSection el={el} key={key} />
-          ))}
-        </div>
-        {cart.length > 0 && (
+        ) : (
           <div className="w-full flex justify-between items-center">
             <h2 className="opacity-50 text-black text-15px">TOTAL</h2>
             <h2 className="text-black font-bold text-lg">$ {num}</h2>

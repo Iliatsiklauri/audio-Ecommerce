@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function DarkBg() {
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { burger, cartMode } = context;
+  const { burger, cartMode, setCartMode } = context;
   return (
     <motion.div
       className={`
@@ -17,6 +17,7 @@ export default function DarkBg() {
         opacity: burger || cartMode ? 0.35 : 0,
       }}
       transition={{ type: 'spring', damping: 20 }}
+      onClick={() => setCartMode(false)}
     ></motion.div>
   );
 }
