@@ -32,7 +32,15 @@ export default function Parent({ children }: { children: ReactNode }) {
       <div className="flex flex-col items-center justify-center w-full relative">
         <Header />
         <DarkBg />
-        <Cart />
+        <Cart
+          burger={burger}
+          cartMode={cartMode}
+          cart={cart}
+          setCart={setCart}
+          setId={setId}
+          setBurger={setBurger}
+          setCartMode={setCartMode}
+        />
         <BurgerMenu />
 
         <div

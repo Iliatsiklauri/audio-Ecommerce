@@ -1,37 +1,42 @@
 import { motion } from 'framer-motion';
-import { useContext, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import Button from './Button';
 import Image from 'next/image';
 import CartSection from './CartSection';
-import { GlobalContext } from '../Data';
-
-export default function Cart() {
+import { CartType, GlobalContext } from '../Data';
+type PropType = {
+  cart: CartType[] | [];
+  setCart: Dispatch<SetStateAction<CartType[] | []>>;
+  burger: boolean;
+  setBurger: React.Dispatch<React.SetStateAction<boolean>>;
+  cartMode: boolean;
+  setCartMode: React.Dispatch<React.SetStateAction<boolean>>;
+  setId: Dispatch<SetStateAction<number>>;
+};
+export default function Cart({ burger, cartMode, cart, setCart, setId }: PropType) {
   const [num, setNum] = useState<any>(0);
-  const context = useContext(GlobalContext);
-
-  if (!context) return null;
-
-  const { burger, cartMode, cart, setCart, id, setId } = context;
 
   useEffect(() => {
     let number = 0;
-    cart.forEach((el) => {
-      number += el.total;
-    });
-    setNum(number.toLocaleString());
+    if (cart) {
+      cart.forEach((el) => {
+        number += el.total;
+      });
+      setNum(number.toLocaleString());
+    }
   }, [cart]);
 
   return (
     <motion.div
-      className="px-6  max-w-[377px]  absolute w-[90%] rounded-md bg-white z-30 top-[107px]"
+      className="px-6 max-w-[377px] absolute w-[90%] rounded-md bg-white z-30 top-[107px]"
       initial={{ y: '-200%' }}
       animate={{
         y: cartMode ? 0 : '-200%',
       }}
       transition={{ type: 'spring', damping: 20, delay: burger ? 0 : 0.15 }}
     >
-      <div className="flex  items-start flex-col justify-center  h-full w-full relative pt-20 pb-8 gap-6">
-        <div className="w-full flex items-center justify-between  absolute  top-6">
+      <div className="flex items-start flex-col justify-center h-full w-full relative pt-20 pb-8 gap-6">
+        <div className="w-full flex items-center justify-between absolute top-6">
           <h2 className="text-lg font-bold text-black">Cart ({cart.length})</h2>
           <p
             className="text-black opacity-50 underline text-[15px] cursor-pointer"
@@ -43,16 +48,14 @@ export default function Cart() {
             Remove All
           </p>
         </div>
-        <div className="w-full  flex flex-col items-center justify-center gap-4">
+        <div className="w-full flex flex-col items-center justify-center gap-4">
           {cart?.map((el, key) => (
             <CartSection el={el} key={key} />
           ))}
         </div>
         {cart.length === 0 ? (
-          <div className="flex justify-center w-full  items-center">
-            <p className=" text-left  w-[190px] opacity-50 text-xl ">
-              Your cart is empty
-            </p>
+          <div className="flex justify-center w-full items-center">
+            <p className="text-left w-[190px] opacity-50 text-xl">Your cart is empty</p>
             <Image
               src={'/shared/desktop/icon-cart.svg'}
               alt="cart"
