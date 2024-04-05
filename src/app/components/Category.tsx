@@ -37,7 +37,7 @@ export default function Category() {
       </motion.div>
       <motion.div
         className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3"
-        initial={{ x: '100%' }}
+        initial={{ x: '-100%' }}
         whileInView={{ x: 0 }}
         transition={{ type: 'spring', damping: 20 }}
       >
