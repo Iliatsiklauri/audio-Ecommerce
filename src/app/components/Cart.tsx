@@ -20,8 +20,8 @@ export default function Cart() {
       number += el.total;
     });
     setNum(number.toLocaleString());
-    console.log(cart);
   }, [cart]);
+
   return (
     <motion.div
       className="px-6  max-w-[377px]  absolute w-[90%] rounded-md bg-white z-30 top-[107px]"
