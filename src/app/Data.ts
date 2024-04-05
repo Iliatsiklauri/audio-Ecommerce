@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, createContext } from 'react';
 
 export type DataType = {
   id: number;
+  forCart: string;
   slug: string;
   name: string;
   image: {
@@ -42,10 +43,12 @@ type ImagesType = {
   desktop: string;
 };
 export type CartType = {
+  id: number;
   price: number;
-  name: string;
+  forCart: string;
   quantity: number;
   image: string;
+  total: number;
 };
 type PropType = {
   data: DataType[];
@@ -56,5 +59,7 @@ type PropType = {
   setBurger: React.Dispatch<React.SetStateAction<boolean>>;
   cartMode: boolean;
   setCartMode: React.Dispatch<React.SetStateAction<boolean>>;
+  id: number;
+  setId: Dispatch<SetStateAction<number>>;
 };
 export const GlobalContext = createContext<null | PropType>(null);

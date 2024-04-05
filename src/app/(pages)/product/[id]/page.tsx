@@ -17,7 +17,7 @@ export default function Page({ params }: ParamsType) {
   const [count, setCount] = useState(0);
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { data, setCart, cart } = context;
+  const { data, setCart, cart, id, setId } = context;
   const newData = data.filter((el) => el.id === Number(params.id))[0];
   const price = newData.price.toString();
   const formattedPrice =
@@ -67,15 +67,18 @@ export default function Page({ params }: ParamsType) {
             <button
               onClick={() => {
                 let obj = {
+                  id: id,
                   price: newData.price,
-                  name: newData.name,
+                  forCart: newData.forCart,
                   image: newData.categoryImage.mobile,
                   quantity: count,
+                  total: newData.price * count,
                 };
                 if (count > 0) {
                   setCart([...cart, obj]);
                   setCount(0);
                 }
+                setId((prev) => prev + 1);
               }}
             >
               <Button text="ADD TO CART" />
