@@ -16,15 +16,12 @@ type ParamsType = {
 export default function Page({ params }: ParamsType) {
   const [count, setCount] = useState(0);
   const context = useContext(GlobalContext);
-
   if (!context) return null;
-
-  const { data } = context;
+  const { data, setCart, cart } = context;
   const newData = data.filter((el) => el.id === Number(params.id))[0];
   const price = newData.price.toString();
   const formattedPrice =
     price.length > 3 ? `$ ${price.slice(0, -3)},${price.slice(-3)}` : `$ ${price}`;
-
   const halfwayIndex = newData.features.length / 2;
   const part1 = newData.features.slice(0, halfwayIndex);
   const part2 = newData.features.slice(halfwayIndex);
@@ -67,7 +64,20 @@ export default function Page({ params }: ParamsType) {
                 +
               </p>
             </div>
-            <button>
+            <button
+              onClick={() => {
+                let obj = {
+                  price: newData.price,
+                  name: newData.name,
+                  image: newData.categoryImage.mobile,
+                  quantity: count,
+                };
+                if (count > 0) {
+                  setCart([...cart, obj]);
+                  setCount(0);
+                }
+              }}
+            >
               <Button text="ADD TO CART" />
             </button>
           </div>

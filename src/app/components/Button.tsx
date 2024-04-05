@@ -1,11 +1,14 @@
 type PropType = {
   backgroud?: string;
   text?: string;
+  width?: string;
 };
-export default function Button({ backgroud, text }: PropType) {
+export default function Button({ backgroud, text, width }: PropType) {
   return (
     <div
-      className={`h-12 w-[160px] flex items-center justify-center ${
+      className={`h-12 ${
+        width ? 'w-full' : 'w-[160px]'
+      } flex items-center justify-center ${
         backgroud
           ? backgroud === 'black'
             ? 'bg-black'

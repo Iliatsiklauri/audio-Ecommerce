@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Dispatch, SetStateAction } from 'react';
-type PropType = {
-  burger: boolean;
-  setBurger: Dispatch<SetStateAction<boolean>>;
-};
-export default function Header({ burger, setBurger }: PropType) {
+import { useContext } from 'react';
+import { GlobalContext } from '../Data';
+
+export default function Heade() {
+  const context = useContext(GlobalContext);
+  if (!context) return null;
+  const { burger, setBurger, cartMode, setCartMode } = context;
   const params = useParams();
   return (
     <div
@@ -21,7 +22,12 @@ export default function Header({ burger, setBurger }: PropType) {
         width={16}
         height={15}
         className="cursor-pointer"
-        onClick={() => setBurger(!burger)}
+        onClick={() => {
+          if (cartMode === true) {
+            setCartMode(false);
+          }
+          setBurger(!burger);
+        }}
       />
       <Link href={'/'}>
         <Image
@@ -38,6 +44,12 @@ export default function Header({ burger, setBurger }: PropType) {
         width={23}
         height={20}
         className="cursor-pointer"
+        onClick={() => {
+          if (burger === true) {
+            setBurger(false);
+          }
+          setCartMode(!cartMode);
+        }}
       />
     </div>
   );

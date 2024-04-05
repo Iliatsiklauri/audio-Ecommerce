@@ -41,10 +41,20 @@ type ImagesType = {
   tablet: string;
   desktop: string;
 };
+export type CartType = {
+  price: number;
+  name: string;
+  quantity: number;
+  image: string;
+};
 type PropType = {
   data: DataType[];
   setData: Dispatch<SetStateAction<DataType[]>>;
-  cart: [];
-  setCart: Dispatch<SetStateAction<[]>>;
+  cart: CartType[] | [];
+  setCart: Dispatch<SetStateAction<CartType[] | []>>;
+  burger: boolean;
+  setBurger: React.Dispatch<React.SetStateAction<boolean>>;
+  cartMode: boolean;
+  setCartMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export const GlobalContext = createContext<null | PropType>(null);
