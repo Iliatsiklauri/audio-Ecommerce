@@ -1,5 +1,5 @@
 'use client';
-import { DataType, GlobalContext } from '@/app/Data';
+import { GlobalContext } from '@/app/Data';
 import Alsolike from '@/app/components/Alsolike';
 import BestGear from '@/app/components/BestGear';
 import Button from '@/app/components/Button';

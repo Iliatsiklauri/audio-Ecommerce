@@ -4,6 +4,7 @@ import Button from './Button';
 import Image from 'next/image';
 import CartSection from './CartSection';
 import { CartType, GlobalContext } from '../Data';
+import Link from 'next/link';
 type PropType = {
   cart: CartType[] | [];
   setCart: Dispatch<SetStateAction<CartType[] | []>>;
@@ -13,7 +14,14 @@ type PropType = {
   setCartMode: React.Dispatch<React.SetStateAction<boolean>>;
   setId: Dispatch<SetStateAction<number>>;
 };
-export default function Cart({ burger, cartMode, cart, setCart, setId }: PropType) {
+export default function Cart({
+  burger,
+  cartMode,
+  cart,
+  setCart,
+  setId,
+  setCartMode,
+}: PropType) {
   const [num, setNum] = useState<any>(0);
 
   useEffect(() => {
@@ -69,9 +77,15 @@ export default function Cart({ burger, cartMode, cart, setCart, setId }: PropTyp
             <h2 className="text-black font-bold text-lg">$ {num}</h2>
           </div>
         )}
-        <div className="w-full">
-          <Button text="CHECKOUT" width="1" />
-        </div>
+        {cart.length > 0 ? (
+          <Link href={'/checkout'} className="w-full" onClick={() => setCartMode(false)}>
+            <Button text="CHECKOUT" width="1" />
+          </Link>
+        ) : (
+          <div className="w-full">
+            <Button text="CHECKOUT" width="1" />
+          </div>
+        )}
       </div>
     </motion.div>
   );

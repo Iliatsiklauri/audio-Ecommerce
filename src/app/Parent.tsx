@@ -45,7 +45,9 @@ export default function Parent({ children }: { children: ReactNode }) {
 
         <div
           className={`${
-            burger || cartMode ? 'h-[783px] overflow-hidden' : 'h-full overflow-auto'
+            burger || cartMode
+              ? 'h-[783px] overflow-hidden'
+              : 'h-full overflow-auto w-full'
           }`}
         >
           {children}

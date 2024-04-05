@@ -6,6 +6,7 @@ import Button from './components/Button';
 import Image from 'next/image';
 import Category from './components/Category';
 import BestGear from './components/BestGear';
+import Link from 'next/link';
 
 export default function Home() {
   const context = useContext(GlobalContext);
@@ -29,7 +30,9 @@ export default function Home() {
           Experience natural, lifelike audio and exceptional build quality made for the
           passionate music enthusiast.
         </p>
-        <Button />
+        <Link href={'/product/2'} className="w-[160px] z-10 bg-black">
+          <Button />
+        </Link>
       </div>
       <Category />
       <div className="w-full h-[600px] rounded-md bg-[#D87D4A] relative flex items-center justify-center flex-col gap-6 text-center px-4 text-white ">
@@ -50,7 +53,9 @@ export default function Home() {
           Upgrade to premium speakers that are phenomenally built to deliver truly
           remarkable sound.
         </p>
-        <Button backgroud="black" />
+        <Link href={'/product/5'}>
+          <Button backgroud="black" />
+        </Link>
       </div>
       <div className="flex flex-col items-start justify-center pl-10 w-full  relative h-[320px] gap-6">
         <img
@@ -61,7 +66,9 @@ export default function Home() {
         <h2 className="text-black text-[28px] font-bold tracking-[2px] z-10">
           ZX7 SPEAKER
         </h2>
-        <Button backgroud="fsdd" />
+        <Link href={'/product/6'} className="z-20">
+          <Button backgroud="fsdd" />
+        </Link>
       </div>
       <div className="flex justify-center items-center gap-6 flex-col w-full">
         <img
@@ -74,7 +81,9 @@ export default function Home() {
           <h2 className="text-black text-[28px] font-bold tracking-[2px] z-10">
             YX1 EARPHONES
           </h2>
-          <Button backgroud="transparent" />
+          <Link href={'/product/1'}>
+            <Button backgroud="transparent" />
+          </Link>
         </div>
       </div>
       <BestGear />
