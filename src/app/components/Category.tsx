@@ -9,7 +9,7 @@ export default function Category() {
     <div className="w-full overflow-hidden flex items-center justify-center flex-col gap-28 ">
       <motion.div
         className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3 mt-12"
-        initial={{ x: 200 }}
+        initial={{ x: '100%' }}
         whileInView={{ x: 0 }}
         transition={{ type: 'spring', damping: 20 }}
       >
@@ -37,7 +37,7 @@ export default function Category() {
       </motion.div>
       <motion.div
         className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3"
-        initial={{ x: -200 }}
+        initial={{ x: '100%' }}
         whileInView={{ x: 0 }}
         transition={{ type: 'spring', damping: 20 }}
       >
@@ -65,7 +65,7 @@ export default function Category() {
       </motion.div>
       <motion.div
         className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3"
-        initial={{ x: 200 }}
+        initial={{ x: '100%' }}
         whileInView={{ x: 0 }}
         transition={{ type: 'spring', damping: 20 }}
       >
