@@ -5,10 +5,10 @@ import { useContext } from 'react';
 import { GlobalContext } from '../Data';
 
 export default function Heade() {
+  const params = useParams();
   const context = useContext(GlobalContext);
   if (!context) return null;
   const { burger, setBurger, cartMode, setCartMode } = context;
-  const params = useParams();
   return (
     <div
       className={`w-full ${
