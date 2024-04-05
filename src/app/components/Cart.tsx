@@ -10,10 +10,10 @@ type propType = {
 };
 
 export default function Cart() {
+  const [num, setNum] = useState<any>(0);
   const context = useContext(GlobalContext);
   if (!context) return null;
   const { burger, cartMode, cart, setCart, id, setId } = context;
-  const [num, setNum] = useState<any>(0);
   useEffect(() => {
     let number = 0;
     cart.forEach((el) => {
