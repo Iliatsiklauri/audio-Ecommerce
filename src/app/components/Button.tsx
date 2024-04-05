@@ -1,7 +1,8 @@
 type PropType = {
   backgroud?: string;
+  text?: string;
 };
-export default function Button({ backgroud }: PropType) {
+export default function Button({ backgroud, text }: PropType) {
   return (
     <div
       className={`h-12 w-[160px] flex items-center justify-center ${
@@ -13,7 +14,9 @@ export default function Button({ backgroud }: PropType) {
       }
        z-10 cursor-pointer`}
     >
-      <p className="font-bold text-[13px] tracking-[1px] uppercase ">see product</p>
+      <p className="font-bold text-[13px] tracking-[1px] uppercase ">
+        {text ? text : 'see product'}
+      </p>
     </div>
   );
 }

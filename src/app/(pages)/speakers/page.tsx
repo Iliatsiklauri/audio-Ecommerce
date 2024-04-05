@@ -11,7 +11,7 @@ export default function Page() {
   const { data } = context;
   const newData = data.filter((el) => el.category === 'speakers');
   return (
-    <div className="px-4 flex flex-col items-center justify-center py-10 gap-24">
+    <div className="px-4 flex flex-col items-center justify-center py-10 gap-24 bg-[#FAFAFA]">
       {newData.map((el) => (
         <SingleItem
           key={el.id}

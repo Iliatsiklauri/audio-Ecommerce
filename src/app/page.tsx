@@ -12,7 +12,7 @@ export default function Home() {
   if (!context) return null;
   const { data } = context;
   return (
-    <div className="w-full relative flex flex-col items-center justify-center gap-10 pt-40 pb-10 px-4 bg-[#FAFAFA]">
+    <div className="w-full relative flex flex-col items-center justify-center gap-10 pt-32 pb-10 px-4 bg-[#FAFAFA]">
       <div className="flex flex-col justify-center items-center gap-4 mb-32">
         <img
           src="/home/mobile/image-header.jpg"

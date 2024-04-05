@@ -11,7 +11,7 @@ export default function Page() {
   const { data } = context;
   const newData = data.filter((el) => el.category === 'earphones');
   return (
-    <div className="flex flex-col gap-32 items-center justify-center py-10 px-4">
+    <div className="flex flex-col gap-32 items-center justify-center py-10 px-4 bg-[#FAFAFA]">
       {newData.map((el) => (
         <SingleItem
           key={el.id}
