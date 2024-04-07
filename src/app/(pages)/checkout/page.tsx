@@ -1,4 +1,5 @@
 'use client';
+import Summary from '@/app/components/Summary';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -173,7 +174,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <button>submit</button>
+      <Summary />
     </form>
   );
 }
