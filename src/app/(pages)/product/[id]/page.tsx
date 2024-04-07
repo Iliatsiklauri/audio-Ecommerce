@@ -76,7 +76,6 @@ export default function Page({ params }: ParamsType) {
                 };
                 if (count > 0) {
                   setCart([...cart, obj]);
-                  setCount(0);
                 }
                 setId((prev) => prev + 1);
               }}

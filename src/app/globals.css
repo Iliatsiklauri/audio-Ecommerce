@@ -7,3 +7,22 @@
   margin: 0;
   box-sizing: border-box;
 }
+.checkbox {
+  -webkit-appearance: none;
+}
+.checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 100%;
+  background: #d87d4a;
+}
+input[type='text']:focus {
+  border: 1px solid #d87d4a;
+  outline: none;
+  caret-color: #d87d4a;
+}
