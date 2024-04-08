@@ -72,7 +72,7 @@ export default function CheckModal() {
             <Button width="1" text="BACK TO HOME" />
           </Link>
         </div>
-        <div className="absolute h-full w-full bg-black z-30 opacity-25"></div>
+        <div className="absolute h-full w-full bg-black z-20 opacity-60 "></div>
       </div>
     </div>
   );
