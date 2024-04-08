@@ -8,7 +8,7 @@ export default function Heade() {
   const params = useParams();
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { burger, setBurger, cartMode, setCartMode } = context;
+  const { burger, setBurger, cartMode, setCartMode, cart } = context;
   return (
     <div
       className={`w-full ${
@@ -38,19 +38,26 @@ export default function Heade() {
           className="cursor-pointer"
         />
       </Link>
-      <Image
-        alt="cart"
-        src={'/shared/desktop/icon-cart.svg'}
-        width={23}
-        height={20}
-        className="cursor-pointer"
-        onClick={() => {
-          if (burger === true) {
-            setBurger(false);
-          }
-          setCartMode(!cartMode);
-        }}
-      />
+      <div className="relative">
+        <Image
+          alt="cart"
+          src={'/shared/desktop/icon-cart.svg'}
+          width={23}
+          height={20}
+          className="cursor-pointer"
+          onClick={() => {
+            if (burger === true) {
+              setBurger(false);
+            }
+            setCartMode(!cartMode);
+          }}
+        />
+        {cart.length > 0 ? (
+          <div className="absolute h-3 w-3 rounded-full bg-white top-[-5px] right-[-5px] flex items-center justify-center">
+            <p className="text-[10px] text-red-600 font-bold">{cart.length}</p>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

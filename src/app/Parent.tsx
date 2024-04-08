@@ -17,6 +17,7 @@ export default function Parent({ children }: { children: ReactNode }) {
   const [id, setId] = useState(1);
   const [num, setNum] = useState(0);
   const [checkout, setCheckout] = useState(false);
+  // const [total]
 
   return (
     <GlobalContext.Provider
