@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react
 import Button from './Button';
 import Image from 'next/image';
 import CartSection from './CartSection';
-import { CartType, GlobalContext } from '../Data';
+import { CartType } from '../Data';
 import Link from 'next/link';
 type PropType = {
   cart: CartType[] | [];
@@ -13,6 +13,8 @@ type PropType = {
   cartMode: boolean;
   setCartMode: React.Dispatch<React.SetStateAction<boolean>>;
   setId: Dispatch<SetStateAction<number>>;
+  num: any;
+  setNum: Dispatch<SetStateAction<any>>;
 };
 export default function Cart({
   burger,
@@ -21,9 +23,9 @@ export default function Cart({
   setCart,
   setId,
   setCartMode,
+  num,
+  setNum,
 }: PropType) {
-  const [num, setNum] = useState<any>(0);
-
   useEffect(() => {
     let number = 0;
     if (cart) {

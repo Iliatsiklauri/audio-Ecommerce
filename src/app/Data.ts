@@ -61,5 +61,9 @@ type PropType = {
   setCartMode: React.Dispatch<React.SetStateAction<boolean>>;
   id: number;
   setId: Dispatch<SetStateAction<number>>;
+  num: any;
+  setNum: Dispatch<SetStateAction<any>>;
+  checkout: boolean;
+  setCheckout: Dispatch<SetStateAction<boolean>>;
 };
 export const GlobalContext = createContext<null | PropType>(null);

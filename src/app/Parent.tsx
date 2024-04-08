@@ -14,6 +14,9 @@ export default function Parent({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartType[] | []>([]);
   const [cartMode, setCartMode] = useState<boolean>(false);
   const [id, setId] = useState(1);
+  const [num, setNum] = useState(0);
+  const [checkout, setCheckout] = useState(false);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -27,6 +30,10 @@ export default function Parent({ children }: { children: ReactNode }) {
         setCartMode,
         id,
         setId,
+        num,
+        setNum,
+        checkout,
+        setCheckout,
       }}
     >
       <div className="flex flex-col items-center justify-center w-full relative">
@@ -40,6 +47,8 @@ export default function Parent({ children }: { children: ReactNode }) {
           setId={setId}
           setBurger={setBurger}
           setCartMode={setCartMode}
+          num={num}
+          setNum={setNum}
         />
         <BurgerMenu />
 

@@ -1,7 +1,8 @@
 'use client';
+import { GlobalContext } from '@/app/Data';
 import Summary from '@/app/components/Summary';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 type DataType = {
@@ -20,13 +21,16 @@ type DataType = {
 export default function Page() {
   const [check, setCheck] = useState(1);
   const { register, handleSubmit } = useForm<DataType>();
+  const context = useContext(GlobalContext);
+  if (!context) return null;
+  const { checkout, setCheckout } = context;
   const sbmt = (data: DataType) => {
     console.log(data);
   };
-  useEffect(() => console.log(check), [check]);
+
   return (
     <form
-      className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8"
+      className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0"
       onSubmit={handleSubmit(sbmt)}
     >
       <div className="rounded-md bg-white w-full flex flex-col justify-center items-start px-7 pt-6 pb-8 gap-8">
