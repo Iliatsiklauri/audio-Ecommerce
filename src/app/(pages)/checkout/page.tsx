@@ -1,5 +1,6 @@
 'use client';
 import { GlobalContext } from '@/app/Data';
+import CheckModal from '@/app/components/CheckModal';
 import Summary from '@/app/components/Summary';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
@@ -33,7 +34,7 @@ export default function Page() {
       className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0"
       onSubmit={handleSubmit(sbmt)}
     >
-      <div className="rounded-md bg-white w-full flex flex-col justify-center items-start px-7 pt-6 pb-8 gap-8">
+      <div className="rounded-md shadow-sm bg-white w-full flex flex-col justify-center items-start px-7 pt-6 pb-8 gap-8">
         <Link className="text-black text-[13px] text-opacity-50 leading-6" href={`/`}>
           Go Back
         </Link>

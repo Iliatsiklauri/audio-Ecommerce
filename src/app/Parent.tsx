@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Cart from './components/Cart';
 import BurgerMenu from './components/BurgerMenu';
 import DarkBg from './components/DarkBg';
+import CheckModal from './components/CheckModal';
 
 export default function Parent({ children }: { children: ReactNode }) {
   const [data, setData] = useState<DataType[]>(res);
@@ -39,6 +40,7 @@ export default function Parent({ children }: { children: ReactNode }) {
       <div className="flex flex-col items-center justify-center w-full relative">
         <Header />
         <DarkBg />
+        <CheckModal />
         <Cart
           burger={burger}
           cartMode={cartMode}
