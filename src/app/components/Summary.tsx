@@ -1,16 +1,29 @@
 'use client';
 import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
-import { GlobalContext } from '../Data';
+import { DataType, GlobalContext } from '../Data';
 import Image from 'next/image';
 import Button from './Button';
+import { FieldErrors } from 'react-hook-form';
+type PropType = {
+  errors: FieldErrors<DataType>;
+  hasErrors: boolean;
+};
+export default function Summary({ errors, hasErrors }: PropType) {
+  useEffect(() => {
+    if (hasErrors) {
+      setCheckout(false);
+      console.log('errors');
+    }
+  }, [hasErrors]);
 
-export default function Summary() {
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { cart, num, checkout, setCheckout } = context;
+  const { cart, num, setCheckout } = context;
+
   let numericValue = num.length > 1 ? parseInt(num.replace(',', '')) : 0;
   let result = numericValue / 5;
   let Total = (numericValue + 50).toLocaleString();
+
   return (
     <div className="flex   flex-col px-6 py-8 items-start gap-6 bg-white rounded-md w-full z-0">
       <h2 className="text-black font-bold text-lg ">Summary</h2>
@@ -56,14 +69,17 @@ export default function Summary() {
         <p className="text-black opacity-50 text-[15px]">GRANT TOTAL</p>
         <p className="text-[#D87D4A] font-bold text-lg">${Total}</p>
       </div>
-      <div
+      <button
         className="w-full"
         onClick={() => {
-          setCheckout(!checkout), console.log('first');
+          if (!hasErrors) {
+            setCheckout(true);
+            // console.log(hasErrors);
+          }
         }}
       >
         <Button width="1" text="CONTINUE & PAY" />
-      </div>
+      </button>
     </div>
   );
 }

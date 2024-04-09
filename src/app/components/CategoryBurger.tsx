@@ -31,12 +31,9 @@ export default function CategoryBurger({
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
             </p>
-            <Image
-              alt="earphones"
-              src={'/shared/desktop/icon-arrow-right.svg'}
-              width={5}
-              height={10}
-            />
+            <div className="relative h-[10px] w-[5px]">
+              <Image alt="earphones" src={'/shared/desktop/icon-arrow-right.svg'} fill />
+            </div>
           </div>
         </Link>
       </motion.div>

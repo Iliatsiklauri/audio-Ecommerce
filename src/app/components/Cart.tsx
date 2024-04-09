@@ -66,12 +66,14 @@ export default function Cart({
         {cart.length === 0 ? (
           <div className="flex justify-center w-full items-center">
             <p className="text-left w-[190px] opacity-50 text-xl">Your cart is empty</p>
-            <Image
-              src={'/shared/desktop/icon-cart.svg'}
-              alt="cart"
-              width={23}
-              height={20}
-            />
+            <div className="relative h-[20px] w-[23px]">
+              <Image
+                src={'/shared/desktop/icon-cart.svg'}
+                alt="cart"
+                width={23}
+                height={20}
+              />
+            </div>
           </div>
         ) : (
           <div className="w-full flex justify-between items-center">

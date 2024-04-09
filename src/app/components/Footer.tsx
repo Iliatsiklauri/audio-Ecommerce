@@ -56,12 +56,9 @@ export default function Footer() {
           width={24}
           height={24}
         />
-        <Image
-          alt="instagram"
-          src={'/shared/desktop/icon-instagram.svg'}
-          width={24}
-          height={24}
-        />
+        <div className="w-6 h-6 relative">
+          <Image alt="instagram" src={'/shared/desktop/icon-instagram.svg'} fill />
+        </div>
       </div>
     </div>
   );

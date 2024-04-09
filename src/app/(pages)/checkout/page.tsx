@@ -1,11 +1,12 @@
 'use client';
 import { GlobalContext } from '@/app/Data';
-import CheckModal from '@/app/components/CheckModal';
 import Summary from '@/app/components/Summary';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import Button from '@/app/components/Button';
 type DataType = {
   Address: string;
   City: string;
@@ -16,19 +17,56 @@ type DataType = {
   ZIP: string;
   MoneyNumber: string;
   PIN: string;
-  OnDelivery: boolean;
-  Money: boolean;
+  OnDelivery?: boolean;
+  Money?: boolean;
 };
+
+const schema = yup.object().shape({
+  Name: yup
+    .string()
+    .required('Should not be Empty')
+    .matches(/^[A-Za-z]+$/, 'Enter a valid name'),
+  City: yup
+    .string()
+    .required('Should not be Empty')
+    .matches(/^[A-Za-z]+$/, 'Enter a valid City name'),
+  Country: yup
+    .string()
+    .required('Should not be Empty')
+    .matches(/^[A-Za-z]+$/, 'Enter a valid County name'),
+  Email: yup
+    .string()
+    .required('Should not be Empty')
+    .matches(/^\S+@\S+\.\S+$/, 'Enter a valid email address')
+    .email('Wrong Format'),
+  Phone: yup
+    .string()
+    .required('Should not be Empty')
+    .matches(/^\d+$/, 'Enter a valid Phone Number')
+    .min(9, 'Minimum Length should be 9'),
+  PIN: yup.string().required('Should not be Empty').matches(/^\d+$/, 'Enter a valid PIN'),
+  MoneyNumber: yup
+    .string()
+    .required('Should not be Empty')
+    .matches(/^\d+$/, 'Enter a valid Number'),
+  Address: yup.string().required('Should not be Empty'),
+  ZIP: yup.string().required('Should not be Empty').matches(/^\d+$/, 'Enter a valid ZIP'),
+});
+
 export default function Page() {
   const [check, setCheck] = useState(1);
-  const { register, handleSubmit } = useForm<DataType>();
-  const context = useContext(GlobalContext);
-  if (!context) return null;
-  const { checkout, setCheckout } = context;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<DataType>({
+    resolver: yupResolver(schema),
+  });
+
+  const hasErrors = Object.keys(errors).length !== 0;
   const sbmt = (data: DataType) => {
     console.log(data);
   };
-
   return (
     <form
       className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0"
@@ -45,7 +83,7 @@ export default function Page() {
           </p>
           <div className="flex flex-col gap-6 items-start justify-center w-full">
             <div className="md:flex-row w-full flex flex-col items-start justify-center gap-6 md:gap-4">
-              <div className="flex flex-col gap-[9px] items-start justify-center w-full">
+              <div className="flex flex-col relative gap-[9px] items-start justify-center w-full">
                 <p className="text-black font-bold text-[13px]">Name</p>
                 <input
                   type="text"
@@ -53,8 +91,13 @@ export default function Page() {
                   className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                   {...register('Name')}
                 />
+                {errors.Name && (
+                  <p className="text-[#CD2C2C] text-[12px] absolute bottom-[-20px]">
+                    {errors.Name?.message}
+                  </p>
+                )}
               </div>
-              <div className="flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
+              <div className="flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px] relative ">
                 <p className="text-black font-bold text-[13px]">Email Address</p>
                 <input
                   type="text"
@@ -62,16 +105,26 @@ export default function Page() {
                   className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                   {...register('Email')}
                 />
+                {errors.Email && (
+                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                    {errors.Email?.message}
+                  </p>
+                )}
               </div>
             </div>
-            <div className="flex flex-col gap-[9px] items-start justify-center w-full">
-              <p className="text-black font-bold text-[13px]">Phone Number</p>
+            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full">
+              <p className="text-black  font-bold text-[13px]">Phone Number</p>
               <input
                 type="text"
                 placeholder="+995 555 555 555"
                 className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                 {...register('Phone')}
               />
+              {errors.Phone && (
+                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  {errors.Phone?.message}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -80,7 +133,7 @@ export default function Page() {
             shipping info
           </p>
           <div className="flex flex-col gap-6 items-start justify-center w-full">
-            <div className="flex flex-col gap-[9px] items-start justify-center w-full">
+            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full">
               <p className="text-black font-bold text-[13px]">Your Address</p>
               <input
                 type="text"
@@ -88,9 +141,14 @@ export default function Page() {
                 className="w-full h-14 pl-6 rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                 {...register('Address')}
               />
+              {errors.Address && (
+                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  {errors.Address?.message}
+                </p>
+              )}
             </div>
             <div className="w-full flex flex-col items-start justify-center gap-6 md:flex-row md:gap-4">
-              <div className="flex flex-col gap-[9px] items-start justify-center w-full">
+              <div className="relative flex flex-col gap-[9px] items-start justify-center w-full">
                 <p className="text-black font-bold text-[13px]">ZIP Code</p>
                 <input
                   type="text"
@@ -98,8 +156,13 @@ export default function Page() {
                   className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                   {...register('ZIP')}
                 />
+                {errors.ZIP && (
+                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                    {errors.ZIP?.message}
+                  </p>
+                )}
               </div>
-              <div className="flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
+              <div className="relative flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
                 <p className="text-black font-bold text-[13px]">City</p>
                 <input
                   type="text"
@@ -107,9 +170,14 @@ export default function Page() {
                   className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                   {...register('City')}
                 />
+                {errors.City && (
+                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                    {errors.City?.message}
+                  </p>
+                )}
               </div>
             </div>
-            <div className="flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
+            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
               <p className="text-black font-bold text-[13px]">Country</p>
               <input
                 type="text"
@@ -117,6 +185,11 @@ export default function Page() {
                 className="w-full h-14 pl-6 rounded-md  text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                 {...register('Country')}
               />
+              {errors.Country && (
+                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  {errors.Country?.message}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -127,22 +200,33 @@ export default function Page() {
           <div className="flex flex-col items-start justify-center gap-4 w-full ">
             <p className="text-black font-bold text-[13px]">Payment Method</p>
             <div className="flex flex-col  items-end justify-center w-full gap-[9px]">
-              <div className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold   text-black border-[#CFCFCF] border-[1px] flex items-center justify-start gap-4 cursor-pointer">
+              <div
+                className={`${
+                  check === 1 ? 'border-[1px] border-[#D87D4A]' : ''
+                } w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold   text-black border-[#CFCFCF] border-[1px] flex items-center justify-start gap-4 cursor-pointer`}
+                onClick={() => {
+                  setCheck(1);
+                }}
+              >
                 <input
                   type="checkbox"
                   id=""
                   className={`checkbox w-5 h-5 border-[#CFCFCF] border-[1px] rounded-full cursor-pointer relative ${
                     check === 1 ? 'checked' : ''
                   }`}
-                  onClick={() => {
-                    setCheck(1);
-                  }}
                   defaultChecked
                   {...register('Money')}
                 />
                 <p>e-Money</p>
               </div>
-              <div className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold cursor-pointer text-black border-[#CFCFCF] border-[1px] flex items-center justify-start gap-4">
+              <div
+                className={` ${
+                  check === 2 ? 'border-[1px] border-[#D87D4A]' : ''
+                } w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold cursor-pointer text-black border-[#CFCFCF] border-[1px] flex items-center justify-start gap-4`}
+                onClick={() => {
+                  setCheck(2);
+                }}
+              >
                 <input
                   type="checkbox"
                   id=""
@@ -150,9 +234,6 @@ export default function Page() {
                     check === 2 ? 'checked' : ''
                   }`}
                   {...register('OnDelivery')}
-                  onClick={() => {
-                    setCheck(2);
-                  }}
                 />
 
                 <p>Cash on Delivery</p>
@@ -160,26 +241,36 @@ export default function Page() {
             </div>
           </div>
           <div className="w-full flex md:flex-row flex-col gap-6 items-start justify-center  md:gap-0">
-            <div className="flex flex-col items-start justify-center w-full gap-[9px]">
+            <div className="flex flex-col relative items-start justify-center w-full gap-[9px]">
               <p className="text-black font-bold text-[13px]">e-Money Number</p>
               <input
                 type="text"
                 className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                 {...register('MoneyNumber')}
               />
+              {errors.MoneyNumber && (
+                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  {errors.MoneyNumber?.message}
+                </p>
+              )}
             </div>
-            <div className="flex flex-col items-start justify-center w-full gap-[9px] max-w-[309px]">
+            <div className="flex flex-col items-start justify-center w-full gap-[9px] max-w-[309px] relative">
               <p className="text-black font-bold text-[13px]">e-Money PIN</p>
               <input
                 type="text"
                 className="w-full h-14 pl-6  rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                 {...register('PIN')}
               />
+              {errors.PIN && (
+                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  {errors.PIN?.message}
+                </p>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <Summary />
+      <Summary errors={errors} hasErrors={hasErrors} />
     </form>
   );
 }
