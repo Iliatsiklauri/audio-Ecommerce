@@ -65,7 +65,7 @@ export default function Page() {
 
   const hasErrors = Object.keys(errors).length !== 0;
   const sbmt = (data: DataType) => {
-    console.log(data);
+    // console.log(data);
   };
   return (
     <form
