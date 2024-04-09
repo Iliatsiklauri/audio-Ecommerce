@@ -4,15 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-export default function Category() {
+export default function DifCategory() {
   return (
-    <div className="w-full overflow-hidden flex items-center justify-center flex-col gap-28 md:hidden">
-      <motion.div
-        className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3 mt-12"
-        initial={{ x: '100%' }}
-        whileInView={{ x: 0 }}
-        transition={{ type: 'spring', damping: 20 }}
-      >
+    <div className="w-full  flex items-center justify-center  gap-[10px] flex-row  ">
+      <motion.div className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3 ">
         <Image
           alt="headphones"
           src={`/shared/desktop/image-category-thumbnail-headphones.png`}
@@ -35,12 +30,7 @@ export default function Category() {
           </div>
         </Link>
       </motion.div>
-      <motion.div
-        className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3"
-        initial={{ x: '-100%' }}
-        whileInView={{ x: 0 }}
-        transition={{ type: 'spring', damping: 20 }}
-      >
+      <motion.div className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3">
         <Image
           alt="speakers"
           src={`/shared/desktop/image-category-thumbnail-speakers.png`}
@@ -63,12 +53,7 @@ export default function Category() {
           </div>
         </Link>
       </motion.div>
-      <motion.div
-        className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3"
-        initial={{ x: '100%' }}
-        whileInView={{ x: 0 }}
-        transition={{ type: 'spring', damping: 20 }}
-      >
+      <motion.div className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3">
         <Image
           alt="earphones"
           src={`/shared/desktop/image-category-thumbnail-earphones.png`}

@@ -64,13 +64,10 @@ export default function Page() {
   });
 
   const hasErrors = Object.keys(errors).length !== 0;
-  const sbmt = (data: DataType) => {
-    // console.log(data);
-  };
   return (
     <form
       className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0"
-      onSubmit={handleSubmit(sbmt)}
+      onSubmit={handleSubmit(() => {})}
     >
       <div className="rounded-md shadow-sm bg-white w-full flex flex-col justify-center items-start px-7 pt-6 pb-8 gap-8">
         <Link className="text-black text-[13px] text-opacity-50 leading-6" href={`/`}>
