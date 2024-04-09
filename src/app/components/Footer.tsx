@@ -18,17 +18,17 @@ export default function Footer() {
             home
           </p>
         </Link>
-        <Link href={'/headphones'}>
+        <Link href={'/category/headphones'}>
           <p className="text-white font-bold text-[13px] leading-5 uppercase cursor-pointer">
             HEADPHONES
           </p>
         </Link>
-        <Link href={'/speakers'}>
+        <Link href={'/category/speakers'}>
           <p className="text-white font-bold text-[13px] leading-5 uppercase cursor-pointer">
             SPEAKERS
           </p>
         </Link>
-        <Link href={'/earphones'}>
+        <Link href={'/category/earphones'}>
           <p className="text-white font-bold text-[13px] leading-5 uppercase cursor-pointer">
             EARPHONES
           </p>
