@@ -78,12 +78,20 @@ export default function Page() {
           </p>
           <div className="flex flex-col gap-6 items-start justify-center w-full">
             <div className="md:flex-row md:justify-between w-full flex flex-col items-start justify-center gap-6 md:gap-4">
-              <div className="flex flex-col relative gap-[9px] items-start justify-center w-full  max-w-[309px]">
+              <div
+                className={`${
+                  errors.Name ? 'broder-[2px] border-[#CD2C2C]' : ''
+                } flex flex-col relative gap-[9px] items-start justify-center w-full   max-w-[309px]`}
+              >
                 <p className="text-black font-bold text-[13px]">Name</p>
                 <input
                   type="text"
                   placeholder="Ilia Tsiklauri"
-                  className="w-full h-14 pl-6  rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                  className={`w-full h-14 pl-6  rounded-md text-[14px] font-bold text-opacity-50 text-black  ${
+                    errors.Name
+                      ? 'border-[2px] border-[#CD2C2C]'
+                      : 'border-[#CFCFCF] border-[1px]'
+                  }`}
                   {...register('Name')}
                 />
                 {errors.Name && (
@@ -92,12 +100,16 @@ export default function Page() {
                   </p>
                 )}
               </div>
-              <div className="flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px] relative ">
+              <div className="flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px] relative">
                 <p className="text-black font-bold text-[13px]">Email Address</p>
                 <input
                   type="text"
                   placeholder="Tsiklauri.ilia26@gmail.com"
-                  className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                  className={`w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black ${
+                    errors.Email
+                      ? 'border-[2px] border-[#CD2C2C]'
+                      : 'border-[#CFCFCF] border-[1px]'
+                  }`}
                   {...register('Email')}
                 />
                 {errors.Email && (
@@ -112,7 +124,11 @@ export default function Page() {
               <input
                 type="text"
                 placeholder="+995 555 555 555"
-                className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                className={`w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black ${
+                  errors.Phone
+                    ? 'border-[2px] border-[#CD2C2C]'
+                    : 'border-[#CFCFCF] border-[1px]'
+                }`}
                 {...register('Phone')}
               />
               {errors.Phone && (
@@ -128,12 +144,16 @@ export default function Page() {
             shipping info
           </p>
           <div className="flex flex-col gap-6 items-start justify-center w-full">
-            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full">
+            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full ">
               <p className="text-black font-bold text-[13px]">Your Address</p>
               <input
                 type="text"
                 placeholder="1137 Williams Avenue"
-                className="w-full h-14 pl-6 rounded-md text-[14px] font-bold text-opacity-50 text-black  border-[#CFCFCF] border-[1px]"
+                className={`w-full h-14 pl-6 rounded-md text-[14px] font-bold text-opacity-50 text-black  ${
+                  errors.Address
+                    ? 'border-[2px] border-[#CD2C2C]'
+                    : 'border-[#CFCFCF] border-[1px]'
+                }`}
                 {...register('Address')}
               />
               {errors.Address && (
@@ -143,12 +163,16 @@ export default function Page() {
               )}
             </div>
             <div className="w-full flex flex-col items-start justify-center gap-6 md:flex-row md:gap-4 md:justify-between md:w-full">
-              <div className="relative flex  flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
+              <div className="relative flex  flex-col gap-[9px] items-start justify-center w-full  max-w-[309px]">
                 <p className="text-black font-bold text-[13px]">ZIP Code</p>
                 <input
                   type="text"
                   placeholder="10001"
-                  className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                  className={`w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black ${
+                    errors.ZIP
+                      ? 'border-[2px] border-[#CD2C2C]'
+                      : 'border-[#CFCFCF] border-[1px]'
+                  }`}
                   {...register('ZIP')}
                 />
                 {errors.ZIP && (
@@ -157,12 +181,16 @@ export default function Page() {
                   </p>
                 )}
               </div>
-              <div className="relative flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
+              <div className="relative flex flex-col gap-[9px] items-start justify-center w-full  max-w-[309px]">
                 <p className="text-black font-bold text-[13px]">City</p>
                 <input
                   type="text"
                   placeholder="New York"
-                  className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                  className={`w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black ${
+                    errors.City
+                      ? 'border-[2px] border-[#CD2C2C]'
+                      : 'border-[#CFCFCF] border-[1px]'
+                  }`}
                   {...register('City')}
                 />
                 {errors.City && (
@@ -172,12 +200,16 @@ export default function Page() {
                 )}
               </div>
             </div>
-            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
+            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full  max-w-[309px]">
               <p className="text-black font-bold text-[13px]">Country</p>
               <input
                 type="text"
                 placeholder="United States"
-                className="w-full h-14 pl-6 rounded-md  text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                className={`w-full h-14 pl-6 rounded-md  text-[14px] font-bold text-opacity-50 text-black ${
+                  errors.Country
+                    ? 'border-[2px] border-[#CD2C2C]'
+                    : 'border-[#CFCFCF] border-[1px]'
+                }`}
                 {...register('Country')}
               />
               {errors.Country && (
@@ -193,7 +225,7 @@ export default function Page() {
             payment details
           </h2>
           <div className="flex flex-col items-start justify-center gap-4 w-full ">
-            <p className="text-black font-bold text-[13px]">Payment Method</p>
+            <p className=" text-black font-bold text-[13px]">Payment Method</p>
             <div className="flex flex-col  items-end justify-center w-full gap-[9px]">
               <div
                 className={`${
@@ -235,12 +267,16 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="w-full flex md:flex-row flex-col gap-6 items-start justify-center  md:gap-0 md:justify-between md:w-full">
+          <div className="w-full flex md:flex-row flex-col gap-6 items-start justify-center  md:gap-4 md:justify-between md:w-full md:items-center">
             <div className="flex flex-col relative items-start justify-center w-full gap-[9px] max-w-[309px]">
               <p className="text-black font-bold text-[13px]">e-Money Number</p>
               <input
                 type="text"
-                className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                className={`w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black ${
+                  errors.MoneyNumber
+                    ? 'border-[2px] border-[#CD2C2C]'
+                    : 'border-[#CFCFCF] border-[1px]'
+                }`}
                 {...register('MoneyNumber')}
               />
               {errors.MoneyNumber && (
@@ -253,7 +289,11 @@ export default function Page() {
               <p className="text-black font-bold text-[13px]">e-Money PIN</p>
               <input
                 type="text"
-                className="w-full h-14 pl-6  rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                className={`w-full h-14 pl-6  rounded-md text-[14px] font-bold text-opacity-50 text-black ${
+                  errors.PIN
+                    ? 'border-[2px] border-[#CD2C2C]'
+                    : 'border-[#CFCFCF] border-[1px]'
+                }`}
                 {...register('PIN')}
               />
               {errors.PIN && (
