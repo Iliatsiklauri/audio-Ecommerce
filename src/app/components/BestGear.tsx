@@ -14,12 +14,12 @@ export default function BestGear() {
         className="rounded-md md:block hidden mt-10"
       />
       <div className="flex items-center justify-center gap-6 md:gap-8 md:mb-10 flex-col ">
-        <h2 className="text-[28px] md:text-[40px] font-bold text-black tracking-[1px] uppercase">
+        <h2 className="text-[28px] md:text-[40px] font-bold text-black tracking-[1px] uppercase md:w-[70%]">
           Bringing you the
           <span className="text-[#D87D4A]"> best </span>
           audio gear
         </h2>
-        <p className="text-black opacity-50 text-[15px] leading-5">
+        <p className="text-black opacity-50 text-[15px] leading-5 md:w-[80%]">
           Located at the heart of New York City, Audiophile is the premier store for high
           end headphones, earphones, speakers, and audio accessories. We have a large
           showroom and luxury demonstration rooms available for you to browse and

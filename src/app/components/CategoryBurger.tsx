@@ -26,7 +26,7 @@ export default function CategoryBurger({
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">headphones</p>
-        <Link href={`/headphones`} onClick={() => setBurger(!burger)}>
+        <Link href={`/category/headphones`} onClick={() => setBurger(!burger)}>
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
@@ -51,7 +51,7 @@ export default function CategoryBurger({
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">speakers</p>
-        <Link href={`/speakers`} onClick={() => setBurger(!burger)}>
+        <Link href={`/category/speakers`} onClick={() => setBurger(!burger)}>
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
@@ -79,7 +79,7 @@ export default function CategoryBurger({
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">earphones</p>
-        <Link href={`/earphones`} onClick={() => setBurger(!burger)}>
+        <Link href={`/category/earphones`} onClick={() => setBurger(!burger)}>
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP

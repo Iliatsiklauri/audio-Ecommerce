@@ -7,13 +7,13 @@ import Category from '@/app/components/Category';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
 
-type ParamsType = {
+export type IdType = {
   params: {
     id: string;
   };
 };
 
-export default function Page({ params }: ParamsType) {
+export default function Page({ params }: IdType) {
   const [count, setCount] = useState(0);
   const context = useContext(GlobalContext);
   if (!context) return null;
@@ -30,7 +30,7 @@ export default function Page({ params }: ParamsType) {
       <div>
         <Link
           className="text-black text-[13px] opacity-50 leading-6"
-          href={`/${newData.category}`}
+          href={`/category/${newData.category}`}
         >
           Go Back
         </Link>

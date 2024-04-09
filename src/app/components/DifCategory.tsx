@@ -16,7 +16,7 @@ export default function DifCategory() {
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">headphones</p>
-        <Link href={`/headphones`}>
+        <Link href={`/category/headphones`} className="cursor-pointer z-20">
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
@@ -39,7 +39,7 @@ export default function DifCategory() {
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">speakers</p>
-        <Link href={`/speakers`}>
+        <Link href={`/category/speakers`} className="cursor-pointer z-20">
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
@@ -62,7 +62,7 @@ export default function DifCategory() {
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">earphones</p>
-        <Link href={`/earphones`}>
+        <Link href={`/category/earphones`} className="cursor-pointer z-20">
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
