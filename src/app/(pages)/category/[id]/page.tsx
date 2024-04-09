@@ -1,5 +1,5 @@
 'use client';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { IdType } from '../../product/[id]/page';
 import Category from '@/app/components/Category';
 import BestGear from '@/app/components/BestGear';
@@ -11,7 +11,7 @@ import DifCategory from '@/app/components/DifCategory';
 export default function Page({ params }: IdType) {
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { data } = context;
+  const { data, burger, setBurger } = context;
   const newData = data.filter((el) => el.category === params.id);
   return (
     <div className="flex relative flex-col gap-32  items-center justify-center py-10 px-4 bg-[#FAFAFA]">
@@ -31,7 +31,7 @@ export default function Page({ params }: IdType) {
       </div>
       <Category />
       <div className="hidden md:block w-full mb-[-40px]">
-        <DifCategory />
+        <DifCategory burger={burger} setBurger={setBurger} />
       </div>
       <BestGear />
     </div>

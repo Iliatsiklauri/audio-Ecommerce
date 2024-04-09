@@ -18,7 +18,7 @@ export default function Page({ params }: IdType) {
   const [count, setCount] = useState(0);
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { data, setCart, cart, id, setId } = context;
+  const { data, setCart, cart, id, setId, burger, setBurger } = context;
   const newData = data.filter((el) => el.id === Number(params.id))[0];
   const price = newData.price.toString();
   const formattedPrice =
@@ -164,7 +164,7 @@ export default function Page({ params }: IdType) {
       </div>
       <Category />
       <div className="hidden w-full md:block">
-        <DifCategory />
+        <DifCategory burger={burger} setBurger={setBurger} />
       </div>
       <BestGear />
     </div>

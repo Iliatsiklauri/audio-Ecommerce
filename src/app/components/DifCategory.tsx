@@ -23,7 +23,7 @@ export default function DifCategory({ burger, setBurger }: PropType) {
         <Link
           href={`/category/headphones`}
           className="cursor-pointer z-20"
-          onClick={() => setBurger(!burger)}
+          onClick={() => setBurger(false)}
         >
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
@@ -50,7 +50,7 @@ export default function DifCategory({ burger, setBurger }: PropType) {
         <Link
           href={`/category/speakers`}
           className="cursor-pointer z-20"
-          onClick={() => setBurger(!burger)}
+          onClick={() => setBurger(false)}
         >
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">

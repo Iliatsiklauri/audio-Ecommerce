@@ -6,8 +6,13 @@ import Category from './components/Category';
 import BestGear from './components/BestGear';
 import Link from 'next/link';
 import DifCategory from './components/DifCategory';
+import { useContext } from 'react';
+import { GlobalContext } from './Data';
 
 export default function Home() {
+  const context = useContext(GlobalContext);
+  if (!context) return null;
+  const { burger, setBurger } = context;
   return (
     <div className="w-full relative flex flex-col items-center justify-center gap-10 pt-32 pb-10 px-4 bg-[#FAFAFA] ">
       <div className="flex flex-col justify-center items-center gap-4 mb-32 w-[70%]">
@@ -37,7 +42,7 @@ export default function Home() {
       </div>
       <Category />
       <div className="w-full hidden md:block my-10">
-        <DifCategory />
+        <DifCategory burger={burger} setBurger={setBurger} />
       </div>
       <div className="w-full h-[690px] rounded-md bg-[#D87D4A] relative flex items-center justify-center flex-col gap-6 md:gap-10 text-center px-4 text-white ">
         <img
