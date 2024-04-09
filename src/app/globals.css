@@ -32,3 +32,8 @@ input[type='text']:focus {
 .ss {
   border-radius: 0px 0px 8px 8px;
 }
+@media screen and (width > 600px) {
+  .ss {
+    border-radius: 0px 8px 8px 0px;
+  }
+}

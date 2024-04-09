@@ -6,8 +6,9 @@ import { useEffect, useState } from 'react';
 type PropType = {
   url: string;
   title: string;
+  url1?: string;
 };
-export default function Alsolike({ title, url }: PropType) {
+export default function Alsolike({ title, url, url1 }: PropType) {
   const [id, setId] = useState<null | number>(null);
   useEffect(() => {
     if (title === 'YX1 Wireless Earphones') {
@@ -27,7 +28,8 @@ export default function Alsolike({ title, url }: PropType) {
   }, [title]);
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4">
-      <img src={`${url}`} alt="" className="rounded-[8px]" />
+      <img src={`${url}`} alt="" className="rounded-[8px] md:hidden" />
+      <img src={`${url1}`} alt="" className="rounded-[8px] hidden md:block" />
       <p className="text-black text-[24px] font-bold tracking-[1.5px]">{title}</p>
       <Link href={`/product/${id}`}>
         <Button />

@@ -16,8 +16,8 @@ export default function CheckModal() {
         checkout ? 'block' : 'hidden'
       } absolute left-0 top-0 bottom-0 right-0 h-full w-full `}
     >
-      <div className="w-full h-full relative">
-        <div className="left-[5%] fixed w-[90%]  top-10 z-40 bg-white rouded-md p-8 flex items-start justify-center rounded-md flex-col gap-6">
+      <div className="w-full h-full relative md:flex items-center justify-center">
+        <div className="fixed w-[90%]  md:w-[540px] top-10 left-[5%] md:left-auto z-40 bg-white rouded-md p-8 flex items-start justify-center  rounded-md flex-col gap-6">
           <Image
             alt="check"
             src={'/checkout/icon-order-confirmation.svg'}
@@ -25,8 +25,8 @@ export default function CheckModal() {
             height={64}
           />
           <h2 className="font-bold text-[24px] text-black">THANK YOU FOR YOUR ORDER</h2>
-          <div className="w-full flex items-center flex-col">
-            <div className="flex flex-col items-center justify-center  bg-[#F1F1F1] w-full  pt-7 pb-6 px-2 rounded-md">
+          <div className="w-full flex items-center flex-col md:flex-row ">
+            <div className="flex flex-col items-center justify-center  bg-[#F1F1F1] w-full md:w-[90%] md:px-4  pt-7 pb-6 px-2 rounded-md md:h-[140px] ">
               <div
                 className={`${
                   cart.length > 1 ? 'border-b-[1px] border-black border-opacity-10' : ''
@@ -57,7 +57,7 @@ export default function CheckModal() {
                 </p>
               ) : null}
             </div>
-            <div className="w-full bg-black h-[92px] pl-6 gap-2 flex flex-col items-start justify-center ss">
+            <div className="w-full bg-black h-[92px] pl-6 gap-2 flex flex-col items-start justify-center md:h-[140px] ss">
               <p className="text-[15px] text-white opacity-50 ">GRAND TOTAL</p>
               <p className="text-white font-bold text-lg">${Total}</p>
             </div>

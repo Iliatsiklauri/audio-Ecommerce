@@ -16,7 +16,7 @@ export default function Page({ params }: IdType) {
   return (
     <div className="flex relative flex-col gap-32  items-center justify-center py-10 px-4 bg-[#FAFAFA]">
       <Which text={params.id} />
-      <div className="flex flex-col items-center justify-center gap-32 mt-24">
+      <div className="flex flex-col items-center justify-center gap-28 mt-28">
         {newData.map((el) => (
           <SingleItem
             key={el.id}
@@ -25,7 +25,7 @@ export default function Page({ params }: IdType) {
             text={`${el.description}`}
             title={`${el.name}`}
             url={`${el.image.mobile}`}
-            url1={`${el.image.desktop}`}
+            url1={`${el.categoryImage.tablet}`}
           />
         ))}
       </div>

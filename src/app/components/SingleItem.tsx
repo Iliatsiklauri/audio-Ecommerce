@@ -16,7 +16,7 @@ export default function SingleItem({ url, title, text, newItem, id, url1 }: Prop
       <img
         src={`${url1}`}
         alt=""
-        className="rounded-md hidden md:block h-[352px]
+        className="rounded-md hidden md:block h-auto
       w-full"
       />
       {newItem ? (

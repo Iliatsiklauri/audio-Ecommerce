@@ -14,7 +14,7 @@ export default function DarkBg() {
    h-full w-full absolute top-0  z-20 bg-black`}
       initial={{ opacity: 0 }}
       animate={{
-        opacity: burger || cartMode ? 0.35 : 0,
+        opacity: burger || cartMode ? 0.5 : 0,
       }}
       transition={{ type: 'spring', damping: 20 }}
       onClick={() => setCartMode(false)}

@@ -3,8 +3,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+type PropType = {
+  burger: boolean;
+  setBurger: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-export default function DifCategory() {
+export default function DifCategory({ burger, setBurger }: PropType) {
   return (
     <div className="w-full  flex items-center justify-center  gap-[10px] flex-row  ">
       <motion.div className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3 ">
@@ -16,7 +20,11 @@ export default function DifCategory() {
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">headphones</p>
-        <Link href={`/category/headphones`} className="cursor-pointer z-20">
+        <Link
+          href={`/category/headphones`}
+          className="cursor-pointer z-20"
+          onClick={() => setBurger(!burger)}
+        >
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
@@ -39,7 +47,11 @@ export default function DifCategory() {
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">speakers</p>
-        <Link href={`/category/speakers`} className="cursor-pointer z-20">
+        <Link
+          href={`/category/speakers`}
+          className="cursor-pointer z-20"
+          onClick={() => setBurger(!burger)}
+        >
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP
@@ -62,7 +74,11 @@ export default function DifCategory() {
           className="absolute top-[-50px]"
         />
         <p className="text-black text-[15px] font-bold uppercase ">earphones</p>
-        <Link href={`/category/earphones`} className="cursor-pointer z-20">
+        <Link
+          href={`/category/earphones`}
+          className="cursor-pointer z-20"
+          onClick={() => setBurger(!burger)}
+        >
           <div className="flex gap-2 justify-end items-center  cursor-pointer">
             <p className="text-black opacity-50 text-[13px] tracking-[1px] uppercase">
               SHOP

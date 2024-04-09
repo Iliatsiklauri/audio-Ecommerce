@@ -14,7 +14,7 @@ export default function Home() {
         <img
           src="/home/mobile/image-header.jpg"
           alt=""
-          className="absolute w-full h-[570px] top-0 md:hidden"
+          className="absolute w-full h-[570px] top-0  md:hidden"
         />
         <img
           src="/home/tablet/image-header.jpg"

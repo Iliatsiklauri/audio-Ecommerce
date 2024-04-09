@@ -64,7 +64,7 @@ export default function Page() {
   const hasErrors = Object.keys(errors).length !== 0;
   return (
     <form
-      className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0"
+      className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0 md:px-7"
       onSubmit={handleSubmit(() => {})}
     >
       <div className="rounded-md shadow-sm bg-white w-full flex flex-col justify-center items-start px-7 pt-6 pb-8 gap-8">
@@ -77,17 +77,17 @@ export default function Page() {
             Billing details
           </p>
           <div className="flex flex-col gap-6 items-start justify-center w-full">
-            <div className="md:flex-row w-full flex flex-col items-start justify-center gap-6 md:gap-4">
-              <div className="flex flex-col relative gap-[9px] items-start justify-center w-full">
+            <div className="md:flex-row md:justify-between w-full flex flex-col items-start justify-center gap-6 md:gap-4">
+              <div className="flex flex-col relative gap-[9px] items-start justify-center w-full  max-w-[309px]">
                 <p className="text-black font-bold text-[13px]">Name</p>
                 <input
                   type="text"
                   placeholder="Ilia Tsiklauri"
-                  className="w-full h-14 pl-6 max-w-[309px] rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                  className="w-full h-14 pl-6  rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
                   {...register('Name')}
                 />
                 {errors.Name && (
-                  <p className="text-[#CD2C2C] text-[12px] absolute bottom-[-20px]">
+                  <p className="text-[#CD2C2C] text-[12px] absolute bottom-[-20px] md:top-0 md:right-0">
                     {errors.Name?.message}
                   </p>
                 )}
@@ -101,13 +101,13 @@ export default function Page() {
                   {...register('Email')}
                 />
                 {errors.Email && (
-                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px] md:top-0 md:right-0">
                     {errors.Email?.message}
                   </p>
                 )}
               </div>
             </div>
-            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full">
+            <div className="relative flex flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
               <p className="text-black  font-bold text-[13px]">Phone Number</p>
               <input
                 type="text"
@@ -116,7 +116,7 @@ export default function Page() {
                 {...register('Phone')}
               />
               {errors.Phone && (
-                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                <p className="text-[#CD2C2C] absolute md:top-0 md:right-0 bottom-[-20px] text-[12px]">
                   {errors.Phone?.message}
                 </p>
               )}
@@ -133,17 +133,17 @@ export default function Page() {
               <input
                 type="text"
                 placeholder="1137 Williams Avenue"
-                className="w-full h-14 pl-6 rounded-md text-[14px] font-bold text-opacity-50 text-black border-[#CFCFCF] border-[1px]"
+                className="w-full h-14 pl-6 rounded-md text-[14px] font-bold text-opacity-50 text-black  border-[#CFCFCF] border-[1px]"
                 {...register('Address')}
               />
               {errors.Address && (
-                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                <p className="text-[#CD2C2C] md:top-0 md:right-0 absolute bottom-[-20px] text-[12px]">
                   {errors.Address?.message}
                 </p>
               )}
             </div>
-            <div className="w-full flex flex-col items-start justify-center gap-6 md:flex-row md:gap-4">
-              <div className="relative flex flex-col gap-[9px] items-start justify-center w-full">
+            <div className="w-full flex flex-col items-start justify-center gap-6 md:flex-row md:gap-4 md:justify-between md:w-full">
+              <div className="relative flex  flex-col gap-[9px] items-start justify-center w-full max-w-[309px]">
                 <p className="text-black font-bold text-[13px]">ZIP Code</p>
                 <input
                   type="text"
@@ -152,7 +152,7 @@ export default function Page() {
                   {...register('ZIP')}
                 />
                 {errors.ZIP && (
-                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px] md:top-0 md:right-0">
                     {errors.ZIP?.message}
                   </p>
                 )}
@@ -166,7 +166,7 @@ export default function Page() {
                   {...register('City')}
                 />
                 {errors.City && (
-                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                  <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px] md:top-0 md:right-0">
                     {errors.City?.message}
                   </p>
                 )}
@@ -181,7 +181,7 @@ export default function Page() {
                 {...register('Country')}
               />
               {errors.Country && (
-                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                <p className="text-[#CD2C2C] md:top-0 md:right-0 absolute bottom-[-20px] text-[12px]">
                   {errors.Country?.message}
                 </p>
               )}
@@ -235,8 +235,8 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="w-full flex md:flex-row flex-col gap-6 items-start justify-center  md:gap-0">
-            <div className="flex flex-col relative items-start justify-center w-full gap-[9px]">
+          <div className="w-full flex md:flex-row flex-col gap-6 items-start justify-center  md:gap-0 md:justify-between md:w-full">
+            <div className="flex flex-col relative items-start justify-center w-full gap-[9px] max-w-[309px]">
               <p className="text-black font-bold text-[13px]">e-Money Number</p>
               <input
                 type="text"
@@ -244,7 +244,7 @@ export default function Page() {
                 {...register('MoneyNumber')}
               />
               {errors.MoneyNumber && (
-                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                <p className="text-[#CD2C2C] md:top-0 md:right-0 absolute bottom-[-20px] text-[12px]">
                   {errors.MoneyNumber?.message}
                 </p>
               )}
@@ -257,7 +257,7 @@ export default function Page() {
                 {...register('PIN')}
               />
               {errors.PIN && (
-                <p className="text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
+                <p className="md:top-0 md:right-0 text-[#CD2C2C] absolute bottom-[-20px] text-[12px]">
                   {errors.PIN?.message}
                 </p>
               )}
