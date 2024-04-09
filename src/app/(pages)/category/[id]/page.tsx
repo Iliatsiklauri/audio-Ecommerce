@@ -8,7 +8,7 @@ import SingleItem from '@/app/components/SingleItem';
 import Which from '@/app/components/Which';
 import DifCategory from '@/app/components/DifCategory';
 
-export default function page({ params }: IdType) {
+export default function Page({ params }: IdType) {
   const context = useContext(GlobalContext);
   if (!context) return null;
   const { data } = context;
