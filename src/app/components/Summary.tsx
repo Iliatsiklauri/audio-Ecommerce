@@ -1,5 +1,5 @@
 'use client';
-import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { DataType, GlobalContext } from '../Data';
 import Image from 'next/image';
 import Button from './Button';

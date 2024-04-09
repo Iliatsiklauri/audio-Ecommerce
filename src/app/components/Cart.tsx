@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import Button from './Button';
 import Image from 'next/image';
 import CartSection from './CartSection';
