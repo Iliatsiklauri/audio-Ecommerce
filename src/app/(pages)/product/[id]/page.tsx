@@ -66,16 +66,16 @@ export default function Page({ params }: IdType) {
             {formattedPrice}
           </p>
           <div className="flex items-center justify-center gap-4">
-            <div className="h-12 w-[120px] bg-[#F1F1F1] flex items-center justify-around">
+            <div className="h-12 w-[120px] bg-[#F1F1F1] flex items-center justify-around ">
               <p
-                className="text-black opacity-30 font-bold text-13px cursor-pointer selection:bg-black hover:opacity-100 hover:text-[#D87D4A]"
+                className="text-black opacity-30 font-bold text-[20px] w-[20px] text-center   cursor-pointer k selection:bg-black hover:opacity-100 hover:text-[#D87D4A]"
                 onClick={() => setCount(count === 0 ? count : count - 1)}
               >
                 -
               </p>
               <p className="font-bold text-black text-[13px]">{count}</p>
               <p
-                className="text-black opacity-30 font-bold hover:opacity-100 hover:text-[#D87D4A] text-13px cursor-pointer selection:bg-black"
+                className="text-black opacity-30 font-bold hover:opacity-100 hover:text-[#D87D4A] text-13px w-[20px] text-center text-[20px] cursor-pointer selection:bg-black"
                 onClick={() => setCount((prev) => prev + 1)}
               >
                 +
