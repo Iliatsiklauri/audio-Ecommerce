@@ -64,7 +64,7 @@ export default function Parent({ children }: { children: ReactNode }) {
         >
           {children}
         </div>
-        <div className={`${burger || cartMode ? 'hidden' : 'block'}`}>
+        <div className={`${burger || cartMode ? 'hidden' : 'block'} w-full`}>
           <Footer />
         </div>
       </div>

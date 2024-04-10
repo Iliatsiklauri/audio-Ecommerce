@@ -47,7 +47,7 @@ export default function Home() {
         </Link>
       </div>
       <Category />
-      <motion.div className="w-full hidden md:block my-10 xl:mt-14">
+      <motion.div className="w-full hidden md:block my-14  sm">
         <DifCategory setBurger={setBurger} />
       </motion.div>
       <div className="w-full h-[690px] rounded-md bg-[#D87D4A] relative flex items-center justify-center flex-col gap-6 md:gap-10 text-center px-4 text-white xl:overflow-hidden xl:items-center xl:justify-center xl:flex-row ">
