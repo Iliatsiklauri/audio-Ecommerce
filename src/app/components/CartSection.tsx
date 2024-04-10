@@ -55,11 +55,17 @@ export default function CartSection({ el }: { el: CartType }) {
         </div>
       </div>
       <div className="w-24 h-8 justify-around bg-[#F1F1F1] flex items-center">
-        <p className="text-black opacity-25 font-bold cursor-pointer" onClick={decrease}>
+        <p
+          className="text-black opacity-25 hover:text-[#D87D4A] hover:opacity-100 font-bold cursor-pointer"
+          onClick={decrease}
+        >
           -
         </p>
         <p className="text-black font-bold">{count}</p>
-        <p className="text-black opacity-25 font-bold cursor-pointer" onClick={increase}>
+        <p
+          className="text-black opacity-25 font-bold cursor-pointer hover:text-[#D87D4A] hover:opacity-100"
+          onClick={increase}
+        >
           +
         </p>
       </div>

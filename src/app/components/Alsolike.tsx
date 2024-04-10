@@ -7,8 +7,9 @@ type PropType = {
   url: string;
   title: string;
   url1?: string;
+  url2?: string;
 };
-export default function Alsolike({ title, url, url1 }: PropType) {
+export default function Alsolike({ title, url, url1, url2 }: PropType) {
   const [id, setId] = useState<null | number>(null);
   useEffect(() => {
     if (title === 'YX1 Wireless Earphones') {
@@ -27,9 +28,10 @@ export default function Alsolike({ title, url, url1 }: PropType) {
     }
   }, [title]);
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-4">
+    <div className="w-full flex flex-col items-center justify-center gap-4 xl:gap-10">
       <img src={`${url}`} alt="" className="rounded-[8px] md:hidden" />
-      <img src={`${url1}`} alt="" className="rounded-[8px] hidden md:block" />
+      <img src={`${url1}`} alt="" className="rounded-[8px] hidden md:block xl:hidden" />
+      <img src={`${url2}`} alt="" className="rounded-[8px] hidden xl:block" />
       <p className="text-black text-[24px] font-bold tracking-[1.5px]">{title}</p>
       <Link href={`/product/${id}`}>
         <Button />

@@ -13,15 +13,15 @@ export default function Heade() {
     <div
       className={`w-full ${
         params.id ? 'bg-black' : 'bg-[#191919]'
-      } flex items-center justify-between px-6
-     py-8 z-30`}
+      } flex items-center justify-between px-6 xl:px-[12%] 
+     py-8 z-30 relative`}
     >
       <Image
         alt="hamburger"
         src={'/shared/tablet/icon-hamburger.svg'}
         width={16}
         height={15}
-        className="cursor-pointer"
+        className="cursor-pointer xl:hidden"
         onClick={() => {
           if (cartMode === true) {
             setCartMode(false);
@@ -38,6 +38,29 @@ export default function Heade() {
           className="cursor-pointer"
         />
       </Link>
+      <div className="hidden  xl:text-white xl:flex gap-[10%] text-[13px] font-bold xl:mr-[20%] tracking-[2px] leading-[25px] ">
+        <Link href={'/'} className="hover:text-[#D87D4A] hover:opacity-100">
+          HOME
+        </Link>
+        <Link
+          href={'/category/headphones'}
+          className="hover:text-[#D87D4A] hover:opacity-100"
+        >
+          HEADPHONES
+        </Link>
+        <Link
+          href={'/category/speakers'}
+          className="hover:text-[#D87D4A] hover:opacity-100"
+        >
+          SPEAKERS
+        </Link>
+        <Link
+          href={'/category/earphones'}
+          className="hover:text-[#D87D4A] hover:opacity-100"
+        >
+          EARPHONES
+        </Link>
+      </div>
       <div className="relative">
         <Image
           alt="cart"
@@ -58,6 +81,7 @@ export default function Heade() {
           </div>
         ) : null}
       </div>
+      <div className="hidden xl:block w-[76%] h-[1px] absolute bottom-0 bg-white opacity-20"></div>
     </div>
   );
 }

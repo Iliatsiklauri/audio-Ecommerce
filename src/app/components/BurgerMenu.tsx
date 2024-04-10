@@ -24,7 +24,7 @@ export default function BurgerMenu() {
         animate={{ y: burger ? 0 : '-101%' }}
         transition={{ type: 'spring', damping: 20 }}
       >
-        <DifCategory burger={burger} setBurger={setBurger} />
+        <DifCategory setBurger={setBurger} />
       </motion.div>
     </div>
   );

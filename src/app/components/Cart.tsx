@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Button from './Button';
 import Image from 'next/image';
 import CartSection from './CartSection';
@@ -26,6 +26,7 @@ export default function Cart({
   num,
   setNum,
 }: PropType) {
+  const [color, setColor] = useState(false);
   useEffect(() => {
     let number = 0;
     if (cart) {
@@ -35,10 +36,18 @@ export default function Cart({
       setNum(number.toLocaleString());
     }
   }, [cart]);
+  const handleCheckout = () => {
+    if (cart.length === 0) {
+      setColor(true);
+      setTimeout(() => {
+        setColor(false);
+      }, 200);
+    }
+  };
 
   return (
     <motion.div
-      className="px-6 max-w-[377px] absolute w-[90%] rounded-md bg-white z-30 top-[107px] md:right-[3%]"
+      className="px-6 max-w-[377px] absolute w-[90%] rounded-md bg-white z-30 top-[107px] md:right-[3%] xl:right-[12%] xl:top-[140px]"
       initial={{ y: '-200%' }}
       animate={{
         y: cartMode ? 0 : '-200%',
@@ -49,7 +58,7 @@ export default function Cart({
         <div className="w-full flex items-center justify-between absolute top-6">
           <h2 className="text-lg font-bold text-black">Cart ({cart.length})</h2>
           <p
-            className="text-black opacity-50 underline text-[15px] cursor-pointer"
+            className="text-black opacity-50 underline text-[15px] cursor-pointer hover:text-[#D87D4A] "
             onClick={() => {
               setCart([]);
               setId(1);
@@ -65,7 +74,13 @@ export default function Cart({
         </div>
         {cart.length === 0 ? (
           <div className="flex justify-center w-full items-center">
-            <p className="text-left w-[190px] opacity-50 text-xl">Your cart is empty</p>
+            <p
+              className={`text-left w-[190px] opacity-50 text-xl ${
+                color ? 'text-red-400  font-medium text-[21px]' : 'text-black'
+              }`}
+            >
+              Your cart is empty
+            </p>
             <div className="relative h-[20px] w-[23px]">
               <Image
                 src={'/shared/desktop/icon-cart.svg'}
@@ -86,7 +101,7 @@ export default function Cart({
             <Button text="CHECKOUT" width="1" />
           </Link>
         ) : (
-          <div className="w-full">
+          <div className="w-full" onClick={handleCheckout}>
             <Button text="CHECKOUT" width="1" />
           </div>
         )}

@@ -17,7 +17,7 @@ export default function CheckModal() {
       } absolute left-0 top-0 bottom-0 right-0 h-full w-full `}
     >
       <div className="w-full h-full relative md:flex items-center justify-center">
-        <div className="fixed w-[90%]  md:w-[540px] top-10 left-[5%] md:left-auto z-40 bg-white rouded-md p-8 flex items-start justify-center  rounded-md flex-col gap-6">
+        <div className="fixed w-[90%]  md:w-[540px] top-10 left-[5%] md:left-auto z-40 bg-white rouded-md p-8 flex items-start justify-center  rounded-md flex-col gap-6 xl:gap-12">
           <Image
             alt="check"
             src={'/checkout/icon-order-confirmation.svg'}
@@ -26,13 +26,13 @@ export default function CheckModal() {
           />
           <h2 className="font-bold text-[24px] text-black">THANK YOU FOR YOUR ORDER</h2>
           <div className="w-full flex items-center flex-col md:flex-row ">
-            <div className="flex flex-col items-center justify-center  bg-[#F1F1F1] w-full md:w-[90%] md:px-4  pt-7 pb-6 px-2 rounded-md md:h-[140px] ">
+            <div className="flex flex-col items-center justify-center  bg-[#F1F1F1] w-full  md:w-[90%] md:px-4  pt-7 pb-6 px-2 rounded-md md:h-[140px] ">
               <div
                 className={`${
                   cart.length > 1 ? 'border-b-[1px] border-black border-opacity-10' : ''
-                } flex  gap-3 items-center justify-between  w-full`}
+                } flex  gap-3 items-center  justify-between  w-full`}
               >
-                <div className="flex gap-4">
+                <div className="flex gap-1  items-center justify-center">
                   <Image
                     alt="product"
                     src={cart[0]?.image}

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import Image from 'next/image';
 type DataType = {
   Address: string;
   City: string;
@@ -23,7 +24,7 @@ const schema = yup.object().shape({
   Name: yup
     .string()
     .required('Should not be Empty')
-    .matches(/^[A-Za-z]+$/, 'Enter a valid name'),
+    .matches(/^[A-Za-z\s]+$/, 'Enter a valid name'),
   City: yup
     .string()
     .required('Should not be Empty')
@@ -40,7 +41,7 @@ const schema = yup.object().shape({
   Phone: yup
     .string()
     .required('Should not be Empty')
-    .matches(/^\d+$/, 'Enter a valid Phone Number')
+    .matches(/^(\+?\d+)$/, 'Enter a valid Phone Number')
     .min(9, 'Minimum Length should be 9'),
   PIN: yup.string().required('Should not be Empty').matches(/^\d+$/, 'Enter a valid PIN'),
   MoneyNumber: yup
@@ -64,11 +65,20 @@ export default function Page() {
   const hasErrors = Object.keys(errors).length !== 0;
   return (
     <form
-      className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0 md:px-7"
+      className="w-full flex flex-col items-start justify-center  bg-[#FAFAFA] px-4 pb-16 pt-4 gap-8 relative z-0 md:px-7 xl:flex-row xl:px-[12%] xl:py-24"
       onSubmit={handleSubmit(() => {})}
     >
+      <Link
+        className="text-black absolute text-[13px] text-opacity-50 leading-6 top-8 left-[12%] xl:text-[14px] hidden xl:block"
+        href={`/`}
+      >
+        Go Back
+      </Link>
       <div className="rounded-md shadow-sm bg-white w-full flex flex-col justify-center items-start px-7 pt-6 pb-8 gap-8">
-        <Link className="text-black text-[13px] text-opacity-50 leading-6" href={`/`}>
+        <Link
+          className="text-black text-[13px] text-opacity-50 leading-6 top-8  xl:text-[14px] xl:hidden"
+          href={`/`}
+        >
           Go Back
         </Link>
         <h2 className="text-black font-bold text-[28px]">CHECKOUT</h2>
@@ -267,7 +277,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="w-full flex md:flex-row flex-col gap-6 items-start justify-center  md:gap-4 md:justify-between md:w-full md:items-center">
+          <div className="w-full flex md:flex-row flex-col gap-6 items-start justify-center  md:gap-4 md:justify-between md:w-full md:items-center ">
             <div className="flex flex-col relative items-start justify-center w-full gap-[9px] max-w-[309px]">
               <p className="text-black font-bold text-[13px]">e-Money Number</p>
               <input
@@ -303,6 +313,19 @@ export default function Page() {
               )}
             </div>
           </div>
+        </div>
+        <div className="w-full hidden xl:flex flex-row gap-14 px-1">
+          <Image
+            alt="cashDelivery"
+            src={'/checkout/icon-cash-on-delivery.svg'}
+            width={48}
+            height={48}
+          />
+          <p className="opacity-50 text-black text-[15px]">
+            The ‘Cash on Delivery’ option enables you to pay in cash when our delivery
+            courier arrives at your residence. Just make sure your address is correct so
+            that your order will not be cancelled.
+          </p>
         </div>
       </div>
       <Summary errors={errors} hasErrors={hasErrors} />

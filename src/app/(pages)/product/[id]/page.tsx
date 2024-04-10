@@ -5,6 +5,8 @@ import BestGear from '@/app/components/BestGear';
 import Button from '@/app/components/Button';
 import Category from '@/app/components/Category';
 import DifCategory from '@/app/components/DifCategory';
+import { spread } from 'axios';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
 
@@ -27,7 +29,7 @@ export default function Page({ params }: IdType) {
   const part1 = newData.features.slice(0, halfwayIndex);
   const part2 = newData.features.slice(halfwayIndex);
   return (
-    <div className="flex flex-col px-4 items-start justify-center py-5 md:px-[5%]  md:gap-32 gap-20 bg-[#FAFAFA]">
+    <div className="flex flex-col px-4 items-start justify-center py-5 md:px-[5%]  md:gap-32 gap-20 bg-[#FAFAFA] xl:px-[12%] ">
       <div>
         <Link
           className="text-black text-[13px] opacity-50 leading-6"
@@ -36,7 +38,7 @@ export default function Page({ params }: IdType) {
           Go Back
         </Link>
       </div>
-      <div className="w-full flex flex-col items-start justify-center gap-12 md:gap-16 md:flex-row md:mt-[-110px]">
+      <div className="w-full flex flex-col items-start justify-center gap-12 md:gap-16 md:flex-row md:mt-[-110px] xl:items-center xl:gap-32  ">
         <img
           src={`${newData.image.mobile}`}
           alt=""
@@ -45,30 +47,35 @@ export default function Page({ params }: IdType) {
         <img
           src={`${newData.image.tablet}`}
           alt=""
-          className="rounded-md hidden md:block w-[281px]"
+          className="rounded-md hidden md:block w-[281px] xl:hidden "
+        />
+        <img
+          src={`${newData.image.desktop}`}
+          alt=""
+          className="rounded-md hidden xl:block xl:w-[540px]"
         />
         <div className="flex flex-col gap-6 md:gap-8 items-start justify-center md:h-full">
           {newData.new ? (
             <p className="text-[#D87D4A] tracking-[10px] text-[14px]">NEW PRODUCT</p>
           ) : null}
-          <h2 className="text-black text-[28px] font-bold tracking-[1px]">
+          <h2 className="text-black text-[28px] xl:text-[40px] font-bold tracking-[1px]">
             {newData.name}
           </h2>
           <p className="text-black opacity-50 text-[15px]">{newData.description}</p>
-          <p className="text-blac font-bold text-[18px] tracking-wide">
+          <p className="text-black font-bold text-[18px] tracking-wide">
             {formattedPrice}
           </p>
           <div className="flex items-center justify-center gap-4">
             <div className="h-12 w-[120px] bg-[#F1F1F1] flex items-center justify-around">
               <p
-                className="text-black opacity-30 font-bold text-13px cursor-pointer selection:bg-black"
+                className="text-black opacity-30 font-bold text-13px cursor-pointer selection:bg-black hover:opacity-100 hover:text-[#D87D4A]"
                 onClick={() => setCount(count === 0 ? count : count - 1)}
               >
                 -
               </p>
               <p className="font-bold text-black text-[13px]">{count}</p>
               <p
-                className="text-black opacity-30 font-bold text-13px cursor-pointer selection:bg-black"
+                className="text-black opacity-30 font-bold hover:opacity-100 hover:text-[#D87D4A] text-13px cursor-pointer selection:bg-black"
                 onClick={() => setCount((prev) => prev + 1)}
               >
                 +
@@ -95,13 +102,13 @@ export default function Page({ params }: IdType) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-10 items-start justify-center">
+      <div className="flex flex-col gap-10 items-start justify-center xl:flex-row xl:justify-between xl:gap-40">
         <div className="w-full text-left gap-4 flex flex-col">
           <h2 className="font-bold text-[28px] leading-9 text-black">FEATURES</h2>
           <p className="text-black opacity-50 text-[15px]">{part1}</p>
           <p className="text-black opacity-50 text-[15px]">{part2}</p>
         </div>
-        <div className="flex flex-col items-start justify-center gap-6 md:flex-row md:w-[80%] md:justify-between">
+        <div className="flex flex-col items-start justify-center gap-6 md:flex-row md:w-[80%] md:justify-between xl:flex-col xl:w-[60%]">
           <h2 className="text-black font-bold uppercase text-[24px]">in the box</h2>
           <div className="flex flex-col gap-2 items-start">
             {newData.includes.map((el, key) => (
@@ -115,7 +122,7 @@ export default function Page({ params }: IdType) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
+      <div className="flex flex-col items-center justify-center gap-4 md:flex-row xl:w-full  xl:justify-start self-center">
         <div className="flex flex-col items-center justify-center gap-4 ">
           <img
             src={`${newData.gallery.first.mobile}`}
@@ -125,7 +132,17 @@ export default function Page({ params }: IdType) {
           <img
             src={`${newData.gallery.first.tablet}`}
             alt=""
-            className="rounded-md hidden md:block h-[174px]"
+            className="rounded-md hidden md:block h-[174px] xl:hidden"
+          />
+          <img
+            src={`${newData.gallery.first.desktop}`}
+            alt=""
+            className="rounded-md hidden xl:block "
+          />
+          <img
+            src={`${newData.gallery.second.desktop}`}
+            alt=""
+            className="rounded-md hidden xl:block w-full"
           />
           <img
             src={`${newData.gallery.second.mobile}`}
@@ -135,7 +152,7 @@ export default function Page({ params }: IdType) {
           <img
             src={`${newData.gallery.second.tablet}`}
             alt=""
-            className="rounded-md hidden md:block h-[174px]"
+            className="rounded-md hidden md:block h-[174px] xl:hidden"
           />
         </div>
         <img
@@ -146,26 +163,56 @@ export default function Page({ params }: IdType) {
         <img
           src={`${newData.gallery.third.tablet}`}
           alt=""
-          className="rounded-md hidden md:block h-[368px] w-auto"
+          className="rounded-md hidden md:block h-[368px] w-auto xl:hidden"
+        />
+        <img
+          src={`${newData.gallery.third.desktop}`}
+          alt=""
+          className="rounded-md hidden xl:block"
         />
       </div>
-      <div className="flex flex-col items-center justify-center gap-9">
+      <div className="flex flex-col items-center justify-center gap-9 md:hidden">
         <h1 className="text-black font-bold text-[24px] uppercase">you may also like</h1>
-        <div className="flex flex-col items-center justify-center gap-9 md:flex-row md:gap-[11px]">
+        <div className="flex flex-col items-center justify-center gap-9 md:flex-row md:gap-[11px] xl:gap-[30px]">
           {newData.others.map((el, key) => (
             <Alsolike
               title={`${el.name}`}
               url={`${el.image.mobile}`}
               key={key}
               url1={`${el.image.tablet}`}
+              url2={`${el.image.desktop}`}
             />
           ))}
         </div>
       </div>
+      <motion.div
+        initial={{ y: 150 }}
+        whileInView={{ y: 0 }}
+        transition={{ type: 'spring', damping: 20 }}
+        className=" flex-col items-center justify-center gap-9 hidden md:flex"
+      >
+        <h1 className="text-black font-bold text-[24px] uppercase">you may also like</h1>
+        <div className="flex flex-col items-center justify-center gap-9 md:flex-row md:gap-[11px] xl:gap-[30px]">
+          {newData.others.map((el, key) => (
+            <Alsolike
+              title={`${el.name}`}
+              url={`${el.image.mobile}`}
+              key={key}
+              url1={`${el.image.tablet}`}
+              url2={`${el.image.desktop}`}
+            />
+          ))}
+        </div>
+      </motion.div>
       <Category />
-      <div className="hidden w-full md:block">
-        <DifCategory burger={burger} setBurger={setBurger} />
-      </div>
+      <motion.div
+        className="hidden w-full md:block"
+        initial={{ y: 150 }}
+        whileInView={{ y: 0 }}
+        transition={{ type: 'spring', damping: 20 }}
+      >
+        <DifCategory setBurger={setBurger} />
+      </motion.div>
       <BestGear />
     </div>
   );
