@@ -32,12 +32,7 @@ export default function Page({ params }: IdType) {
         ))}
       </div>
       <Category />
-      <motion.div
-        className="hidden md:block w-full mb-[-40px]"
-        initial={{ y: 150 }}
-        whileInView={{ y: 0 }}
-        transition={{ type: 'spring', damping: 20 }}
-      >
+      <motion.div className="hidden md:block w-full mb-[-40px]">
         <DifCategory setBurger={setBurger} home={false} />
       </motion.div>
       <BestGear />

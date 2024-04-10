@@ -8,15 +8,10 @@ type PropType = {
   home?: boolean;
 };
 
-export default function DifCategory({ setBurger, home }: PropType) {
+export default function DifCategory({ setBurger }: PropType) {
   return (
     <div className="w-full  flex items-center justify-center  gap-[10px] flex-row ">
-      <motion.div
-        className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3 "
-        initial={{ x: home ? -400 : 0 }}
-        whileInView={{ x: 0 }}
-        transition={{ type: 'spring', damping: 30, delay: 0.15 }}
-      >
+      <motion.div className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3 ">
         <Image
           alt="headphones"
           src={`/shared/desktop/image-category-thumbnail-headphones.png`}
@@ -43,12 +38,7 @@ export default function DifCategory({ setBurger, home }: PropType) {
           </div>
         </Link>
       </motion.div>
-      <motion.div
-        initial={{ x: home ? -600 : 0 }}
-        whileInView={{ x: 0 }}
-        transition={{ type: 'spring', damping: 30, delay: 0.1 }}
-        className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3"
-      >
+      <motion.div className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3">
         <Image
           alt="speakers"
           src={`/shared/desktop/image-category-thumbnail-speakers.png`}
@@ -75,12 +65,7 @@ export default function DifCategory({ setBurger, home }: PropType) {
           </div>
         </Link>
       </motion.div>
-      <motion.div
-        initial={{ x: home ? -1000 : 0 }}
-        whileInView={{ x: 0 }}
-        transition={{ type: 'spring', damping: 30, delay: 0.0 }}
-        className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3"
-      >
+      <motion.div className="relative flex flex-col justify-end items-center w-full h-[165px] bg-[#F1F1F1] rounded-lg pb-5 gap-3">
         <Image
           alt="earphones"
           src={`/shared/desktop/image-category-thumbnail-earphones.png`}

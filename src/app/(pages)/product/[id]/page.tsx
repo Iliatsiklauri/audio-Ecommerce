@@ -185,12 +185,7 @@ export default function Page({ params }: IdType) {
           ))}
         </div>
       </div>
-      <motion.div
-        initial={{ y: 150 }}
-        whileInView={{ y: 0 }}
-        transition={{ type: 'spring', damping: 20 }}
-        className=" flex-col items-center justify-center gap-9 hidden md:flex"
-      >
+      <motion.div className=" flex-col items-center justify-center gap-9 hidden md:flex">
         <h1 className="text-black font-bold text-[24px] uppercase">you may also like</h1>
         <div className="flex flex-col items-center justify-center gap-9 md:flex-row md:gap-[11px] xl:gap-[30px]">
           {newData.others.map((el, key) => (
@@ -205,12 +200,7 @@ export default function Page({ params }: IdType) {
         </div>
       </motion.div>
       <Category />
-      <motion.div
-        className="hidden w-full md:block"
-        initial={{ y: 150 }}
-        whileInView={{ y: 0 }}
-        transition={{ type: 'spring', damping: 20 }}
-      >
+      <motion.div className="hidden w-full md:block">
         <DifCategory setBurger={setBurger} />
       </motion.div>
       <BestGear />
