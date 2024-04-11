@@ -83,6 +83,7 @@ export default function Page({ params }: IdType) {
             </div>
             <button
               onClick={() => {
+                let bool = cart.some((el) => el.forCart == newData.forCart);
                 let obj = {
                   id: id,
                   price: newData.price,
@@ -91,7 +92,7 @@ export default function Page({ params }: IdType) {
                   quantity: count,
                   total: newData.price * count,
                 };
-                if (count > 0) {
+                if (count > 0 && !bool) {
                   setCart([...cart, obj]);
                 }
                 setId((prev) => prev + 1);

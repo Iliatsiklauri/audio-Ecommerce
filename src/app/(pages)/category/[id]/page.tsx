@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 export default function Page({ params }: IdType) {
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { data, burger, setBurger } = context;
+  const { data, setBurger } = context;
   const newData = data.filter((el) => el.category === params.id);
   return (
     <div className="flex relative flex-col gap-32  items-center justify-center py-10 px-4 bg-[#FAFAFA] xl:px-[12%]">
