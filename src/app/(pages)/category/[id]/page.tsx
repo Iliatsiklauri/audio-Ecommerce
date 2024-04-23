@@ -32,7 +32,7 @@ export default function Page({ params }: IdType) {
         ))}
       </div>
       <Category />
-      <motion.div className="hidden md:block w-full mb-[-40px]">
+      <motion.div className="hidden md:block w-full ">
         <DifCategory setBurger={setBurger} home={false} />
       </motion.div>
       <BestGear />
