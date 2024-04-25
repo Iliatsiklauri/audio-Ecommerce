@@ -38,7 +38,7 @@ export default function Parent({ children }: { children: ReactNode }) {
         setCheckout,
       }}
     >
-      <div className="flex flex-col items-center justify-center w-full relative">
+      <div className="flex flex-col items-center justify-center w-full relative ">
         <Header />
         <DarkBg />
         <CheckModal />
@@ -56,7 +56,7 @@ export default function Parent({ children }: { children: ReactNode }) {
         <BurgerMenu />
 
         <div
-          className={`${
+          className={` ${
             burger || cartMode
               ? 'h-[783px] 2xl:h-[900px] overflow-hidden w-full'
               : 'h-full overflow-auto w-full'

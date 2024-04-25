@@ -15,7 +15,7 @@ export default function Home() {
   if (!context) return null;
   const { burger, setBurger } = context;
   return (
-    <div className="w-full relative flex flex-col items-center xl:items-center justify-center gap-10 pt-32 pb-10 px-4 bg-[#FAFAFA]  xl:px-[12%] xl:gap-28">
+    <div className="w-full relative flex flex-col items-center xl:items-center justify-center gap-10 pt-32 pb-10 px-4 bg-[#FAFAFA]  xl:px-[12%] xl:gap-28 ">
       <div className="flex flex-col xl:self-start  justify-center xl:items-start items-center gap-6 mb-32 xl:gap-8 w-[70%] xl:w-[30%] ">
         <img
           src="/home/mobile/image-header.jpg"
@@ -25,12 +25,12 @@ export default function Home() {
         <img
           src="/home/tablet/image-header.jpg"
           alt=""
-          className="absolute w-full h-[570px] hidden md:block xl:hidden top-0 "
+          className="absolute w-full h-[670px] hidden md:block lg:hidden top-0 "
         />
         <img
           src="/home/desktop/image-hero.jpg"
           alt=""
-          className="absolute w-full  left-0 hidden xl:block top-0 "
+          className="absolute w-full  left-0 hidden lg:block top-0 "
         />
         <h2 className="opacity-50 text-white text-[14px] tracking-[10px] uppercase xl:text-left ">
           NEW PRODUCT
