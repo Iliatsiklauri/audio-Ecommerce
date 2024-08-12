@@ -9,7 +9,7 @@ export default function BurgerMenu() {
   if (!context) return null;
   const { burger, setBurger } = context;
   return (
-    <div className="w-full">
+    <div className="w-full md:hidden">
       <motion.div
         className={`w-full  py-10  bg-white px-6  z-20 top-[97px] absolute md:hidden`}
         initial={{ x: '-100%' }}
